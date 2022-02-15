@@ -12,9 +12,6 @@ trait ComponentTrait
         $this->numberCreated = $numberCreated;
     }
 
-
-
-
     public function getQuantity(): int
     {
         return $this->quantity;
