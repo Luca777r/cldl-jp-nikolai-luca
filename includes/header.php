@@ -30,7 +30,23 @@ include 'includes/functions/functions.php';
                     <a class="nav-link active" aria-current="page" href="?page=list"></a>
                 </li>
             </ul>
-
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                        ?>
+                        <a class="nav-link" href="?page=logout">
+                            <?= $_SESSION['username']; ?> (Déconnexion)
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <a class="nav-link bi bi-person" aria-current="page" href="?page=login">Connexion</a>
+                        <?php
+                    }
+                    ?>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
