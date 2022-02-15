@@ -1,37 +1,34 @@
 <?php
 
 
-abstract class Component{
+abstract class Component
+{
     protected ?int $id;
     protected ?string $categorie;
     protected ?string $model;
     protected ?string $brand;
     protected ?float $price;
-    protected ?int $quantity;
-    protected ?int $numberCreated;
     protected ?DateTime $date;
     protected ?bool $isPeripheral;
 
-    function __construct(string $categorie, string $model, string $brand, float $price, int $quantity, int $numberCreated, bool $isPeripheral)
+    public function __construct(string $categorie, string $model, string $brand, float $price, int $quantity, int $numberCreated, bool $isPeripheral)
     {
         $this->categorie = $categorie;
         $this->model = $model;
         $this->brand = $brand;
         $this->price = $price;
-        $this->quantity = $quantity;
-        $this->numberCreated = $numberCreated;
         $this->date = new DateTime();
         $this->isPeripheral = $isPeripheral;
     }
 
 
-  
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-     
+
     public function setId($id): self
     {
         $this->id = $id;
@@ -39,13 +36,13 @@ abstract class Component{
         return $this;
     }
 
-    
+
     public function getCategorie(): string
     {
         return $this->categorie;
     }
 
-    
+
     public function setCategorie($categorie): self
     {
         $this->categorie = $categorie;
@@ -53,13 +50,13 @@ abstract class Component{
         return $this;
     }
 
-    
+
     public function getModel(): string
     {
         return $this->model;
     }
 
-    
+
     public function setModel($model): self
     {
         $this->model = $model;
@@ -67,13 +64,13 @@ abstract class Component{
         return $this;
     }
 
-    
+
     public function getBrand(): string
     {
         return $this->brand;
     }
 
-    
+
     public function setBrand($brand): self
     {
         $this->brand = $brand;
@@ -81,13 +78,13 @@ abstract class Component{
         return $this;
     }
 
-    
+
     public function getPrice(): float
     {
         return $this->price;
     }
 
-    
+
     public function setPrice($price): self
     {
         $this->price = $price;
@@ -95,41 +92,12 @@ abstract class Component{
         return $this;
     }
 
-   
-    public function getQuantity(): int
-    {
-        return $this->quantity;
-    }
-
-    
-    public function setQuantity($quantity): self
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-   
-    public function getNumberCreated(): int
-    {
-        return $this->numberCreated;
-    }
-
-    
-    public function setNumberCreated($numberCreated): self
-    {
-        $this->numberCreated = $numberCreated;
-
-        return $this;
-    }
-
-   
     public function getDate(): DateTime
     {
         return $this->date;
     }
 
-    
+
     public function setDate($date): self
     {
         $this->date = $date;
@@ -137,13 +105,13 @@ abstract class Component{
         return $this;
     }
 
-   
+
     public function getIsPeripheral(): bool
     {
         return $this->isPeripheral;
     }
 
-    
+
     public function setIsPeripheral($isPeripheral): self
     {
         $this->isPeripheral = $isPeripheral;
