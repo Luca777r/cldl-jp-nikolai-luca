@@ -1,8 +1,13 @@
 <?php
 
-trait Date
+namespace Traits;
+
+use DateTime;
+
+trait DateTrait
 {
-    protected ?DateTime $date;
+    private ?DateTime $date;
+    
     public function __construct()
     {
         $this->date = new DateTime();

@@ -6,6 +6,7 @@ trait ComponentTrait
 {
     private ?int $quantity;
     private ?int $numberCreated;
+    
     public function __construct(int $quantity, int $numberCreated)
     {
         $this->quantity = $quantity;
