@@ -10,12 +10,12 @@ class Monitor extends Component
     }
 
 
-    public function getDiagonalSize()
+    public function getDiagonalSize(): ?float
     {
         return $this->diagonalSize;
     }
 
-    public function setDiagonalSize($diagonalSize)
+    public function setDiagonalSize($diagonalSize): self
     {
         $this->diagonalSize = $diagonalSize;
 

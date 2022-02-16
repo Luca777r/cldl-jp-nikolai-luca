@@ -14,12 +14,12 @@ class Ram extends Component
     }
 
 
-    public function getMemory()
+    public function getMemory(): float
     {
         return $this->memory;
     }
 
-    public function setMemory($memory)
+    public function setMemory($memory): self
     {
         $this->memory = $memory;
 
@@ -27,12 +27,12 @@ class Ram extends Component
     }
 
 
-    public function getNbStrip()
+    public function getNbStrip(): ?int
     {
         return $this->nbStrip;
     }
 
-    public function setNbStrip($nbStrip)
+    public function setNbStrip($nbStrip): self
     {
         $this->nbStrip = $nbStrip;
 
@@ -40,12 +40,12 @@ class Ram extends Component
     }
 
 
-    public function getTypeFrequences()
+    public function getTypeFrequences(): ?string
     {
         return $this->typeFrequences;
     }
 
-    public function setTypeFrequences($typeFrequences)
+    public function setTypeFrequences($typeFrequences): self
     {
         $this->typeFrequences = $typeFrequences;
 

@@ -12,12 +12,12 @@ class StorageSystem extends Component
     }
 
 
-    public function getIsSsd()
+    public function getIsSsd(): ?bool
     {
         return $this->isSsd;
     }
 
-    public function setIsSsd($isSsd)
+    public function setIsSsd($isSsd): self
     {
         $this->isSsd = $isSsd;
 
@@ -25,12 +25,12 @@ class StorageSystem extends Component
     }
 
 
-    public function getMemory()
+    public function getMemory(): ?int
     {
         return $this->memory;
     }
 
-    public function setMemory($memory)
+    public function setMemory($memory): self
     {
         $this->memory = $memory;
 

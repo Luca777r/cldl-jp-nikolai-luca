@@ -1,6 +1,6 @@
 <?php
 
-class Alimentation extends Component
+class PowerSupply extends Component
 {
     protected ?float $power;
 
@@ -10,12 +10,12 @@ class Alimentation extends Component
     }
 
 
-    public function getPower()
+    public function getPower(): ?float
     {
         return $this->power;
     }
 
-    public function setPower($power)
+    public function setPower($power): self
     {
         $this->power = $power;
 
