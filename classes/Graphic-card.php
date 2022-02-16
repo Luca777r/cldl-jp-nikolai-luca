@@ -1,6 +1,6 @@
 <?php
 
-class GraphicCard
+class GraphicCard extends Component
 {
     protected ?string $chipset;
     protected ?float $memory;

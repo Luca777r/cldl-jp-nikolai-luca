@@ -1,6 +1,6 @@
 <?php
 
-class Motherboard
+class Motherboard extends Component
 {
     protected ?string $socket;
     protected ?string $format;

@@ -2,7 +2,7 @@
 
 use Traits\WiredTrait;
 
-class Mouse
+class Mouse extends Component
 {
     use WiredTrait;
     protected ?bool $ispad;
