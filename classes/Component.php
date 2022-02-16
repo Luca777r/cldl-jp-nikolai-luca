@@ -1,5 +1,6 @@
 <?php
 
+use Traits\DateTrait;
 
 abstract class Component
 {
@@ -8,16 +9,15 @@ abstract class Component
     protected ?string $model;
     protected ?string $brand;
     protected ?float $price;
-    protected ?DateTime $date;
     protected ?bool $isPeripheral;
+    use DateTrait;
 
-    public function __construct(string $categorie, string $model, string $brand, float $price, int $quantity, int $numberCreated, bool $isPeripheral)
+    public function __construct(string $categorie, string $model, string $brand, float $price, bool $isPeripheral)
     {
         $this->categorie = $categorie;
         $this->model = $model;
         $this->brand = $brand;
         $this->price = $price;
-        $this->date = new DateTime();
         $this->isPeripheral = $isPeripheral;
     }
 
@@ -91,20 +91,6 @@ abstract class Component
 
         return $this;
     }
-
-    public function getDate(): DateTime
-    {
-        return $this->date;
-    }
-
-
-    public function setDate($date): self
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
 
     public function getIsPeripheral(): bool
     {

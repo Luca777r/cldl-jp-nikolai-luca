@@ -1,5 +1,7 @@
 <?php
 
+use Traits\ComponentTrait;
+
 class Message
 {
     protected ?string $text;
