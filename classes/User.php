@@ -1,6 +1,6 @@
 <?php
 
-class Utilisateur
+class User
 {
     protected ?int $id;
     protected ?string $password;
@@ -46,8 +46,4 @@ class Utilisateur
     {
         $this->password = $password;
     }
-
-
-
-
 }

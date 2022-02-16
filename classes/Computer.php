@@ -16,7 +16,7 @@ class Computer
         $this->nom = $nom;
     }
 
-    public function getIsLaptop(): bool
+    public function getIsLaptop(): ?bool
     {
         return $this->isLaptop;
     }
@@ -28,7 +28,7 @@ class Computer
         return $this;
     }
 
-    public function getNom(): string
+    public function getNom(): ?string
     {
         return $this->nom;
     }
