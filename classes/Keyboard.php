@@ -5,35 +5,35 @@ use Traits\WiredTrait;
 class Keyboard extends Component
 {
     use WiredTrait;
-    protected ?bool $hasnumkeypad;
-    protected ?string $keypadtype;
+    protected ?bool $hasNumKeypad;
+    protected ?string $keypadType;
     
-    public function __construct(bool $hasnumkeypad, string $keypadtype)
+    public function __construct(bool $hasNumKeypad, string $keypadType)
     {
-        $this->hasnumkeypad = $hasnumkeypad;
-        $this->keypadtype = $keypadtype;
+        $this->hasNumKeypad = $hasNumKeypad;
+        $this->keypadType = $keypadType;
     }
 
-    public function getHasnumkeypad(): ?bool
+    public function getHasNumKeypad(): ?bool
     {
-        return $this->hasnumkeypad;
+        return $this->hasNumKeypad;
     }
 
-    public function setHasnumkeypad($hasnumkeypad): self
+    public function setHasNumKeypad($hasNumKeypad): self
     {
-        $this->hasnumkeypad = $hasnumkeypad;
+        $this->hasNumKeypad = $hasNumKeypad;
 
         return $this;
     }
 
-    public function getKeypadtype(): ?string
+    public function getKeypadType(): ?string
     {
-        return $this->keypadtype;
+        return $this->keypadType;
     }
 
-    public function setKeypadtype($keypadtype): self
+    public function setKeypadType($keypadType): self
     {
-        $this->keypadtype = $keypadtype;
+        $this->keypadType = $keypadType;
 
         return $this;
     }

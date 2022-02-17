@@ -6,22 +6,22 @@ use DateTime;
 
 trait DateTrait
 {
-    private ?DateTime $date;
+    private ?DateTime $dateAdd;
     
     public function __construct()
     {
-        $this->date = new DateTime();
+        $this->dateAdd = new DateTime();
     }
 
-    public function getDate(): DateTime
+    public function getDateAdd(): DateTime
     {
-        return $this->date;
+        return $this->dateAdd;
     }
 
 
-    public function setDate($date): self
+    public function setDateAdd($date): self
     {
-        $this->date = $date;
+        $this->dateAdd = $date;
 
         return $this;
     }

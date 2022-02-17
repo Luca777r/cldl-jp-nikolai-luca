@@ -4,20 +4,20 @@ namespace Traits;
 
 trait WiredTrait
 {
-    private ?bool $iswired;
+    private ?bool $isWired;
     
-    public function __construct(bool $iswired){
-        $this->iswired = $iswired;
+    public function __construct(bool $isWired){
+        $this->isWired = $isWired;
     }
 
-    public function getIswired(): ?bool
+    public function getIsWired(): ?bool
     {
-        return $this->iswired;
+        return $this->isWired;
     }
 
-    public function setIswired($iswired): self
+    public function setIsWired($isWired): self
     {
-        $this->iswired = $iswired;
+        $this->isWired = $isWired;
 
         return $this;
     }

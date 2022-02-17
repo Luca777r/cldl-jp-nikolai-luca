@@ -2,22 +2,22 @@
 
 class PowerSupply extends Component
 {
-    protected ?float $power;
+    protected ?float $powerSupply;
 
-    function __construct(float $power)
+    function __construct(float $powerSupply)
     {
-        $this->power = $power;
+        $this->powerSupply = $powerSupply;
     }
 
 
-    public function getPower(): ?float
+    public function getPowerSupply(): ?float
     {
-        return $this->power;
+        return $this->powerSupply;
     }
 
-    public function setPower($power): self
+    public function setPower($powerSupply): self
     {
-        $this->power = $power;
+        $this->powerSupply = $powerSupply;
 
         return $this;
     }

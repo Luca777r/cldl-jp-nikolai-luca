@@ -1,5 +1,6 @@
 <?php
 
+use Traits\ComponentTrait;
 use Traits\DateTrait;
 
 abstract class Component
@@ -11,6 +12,7 @@ abstract class Component
     protected ?float $price;
     protected ?bool $isPeripheral;
     use DateTrait;
+    use ComponentTrait;
 
     public function __construct(string $categorie, string $model, string $brand, float $price, bool $isPeripheral)
     {

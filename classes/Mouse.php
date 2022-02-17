@@ -5,36 +5,36 @@ use Traits\WiredTrait;
 class Mouse extends Component
 {
     use WiredTrait;
-    protected ?bool $ispad;
-    protected ?int $numkey;
+    protected ?bool $isPad;
+    protected ?int $numKey;
     
-    public function __construct(bool $ispad, int $numkey)
+    public function __construct(bool $isPad, int $numKey)
     {
-        $this->ispad = $ispad;
-        $this->numkey = $numkey;
+        $this->isPad = $isPad;
+        $this->numKey = $numKey;
     }
 
-    public function getIspad(): ?bool
+    public function getIsPad(): ?bool
     {
-        return $this->ispad;
+        return $this->isPad;
     }
 
     
-    public function setIspad($ispad): self
+    public function setIsPad($isPad): self
     {
-        $this->ispad = $ispad;
+        $this->isPad = $isPad;
 
         return $this;
     }
 
-    public function getNumkey(): ?bool
+    public function getNumKey(): ?bool
     {
-        return $this->numkey;
+        return $this->numKey;
     }
 
-    public function setNumkey($numkey): self
+    public function setNumKey($numKey): self
     {
-        $this->numkey = $numkey;
+        $this->numKey = $numKey;
 
         return $this;
     }

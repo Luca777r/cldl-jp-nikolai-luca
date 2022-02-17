@@ -1,6 +1,6 @@
 <?php
 
-class User
+class GlobalUser
 {
     protected ?int $id;
     protected ?string $password;
