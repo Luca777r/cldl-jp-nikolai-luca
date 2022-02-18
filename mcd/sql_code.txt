@@ -1,20 +1,3 @@
-CREATE TABLE GlobalUser(
-   id INT AUTO_INCREMENT,
-   password VARCHAR(128),
-   CONSTRAINT GlobalUser_PK PRIMARY KEY(id)
-);
-
-CREATE TABLE Ordinateur(
-   id INT AUTO_INCREMENT,
-   isLaptop BOOLEAN,
-   quantity VARCHAR(50),
-   dateAdd VARCHAR(50),
-   name VARCHAR(50),
-   id_1 INT NOT NULL,
-   CONSTRAINT Ordinateur_PK PRIMARY KEY(id),
-   CONSTRAINT Ordinateur_GlobalUser_1_FK FOREIGN KEY(id_1) REFERENCES GlobalUser(id)
-);
-
 CREATE TABLE Component(
    id INT AUTO_INCREMENT,
    categorie VARCHAR(50),
@@ -25,9 +8,7 @@ CREATE TABLE Component(
    numberCreated INT,
    dateAdd DATE,
    isPeripheral BOOLEAN,
-   id_1 INT NOT NULL,
-   CONSTRAINT Component_PK PRIMARY KEY(id),
-   CONSTRAINT Component_Ordinateur_1_FK FOREIGN KEY(id_1) REFERENCES Ordinateur(id)
+   CONSTRAINT Component_PK PRIMARY KEY(id)
 );
 
 CREATE TABLE Processor(
@@ -96,18 +77,6 @@ CREATE TABLE PowerSupply(
    CONSTRAINT PowerSupply_Component_FK FOREIGN KEY(id) REFERENCES Component(id)
 );
 
-CREATE TABLE Concepteur(
-   id INT,
-   CONSTRAINT Concepteur_PK PRIMARY KEY(id),
-   CONSTRAINT Concepteur_GlobalUser_FK FOREIGN KEY(id) REFERENCES GlobalUser(id)
-);
-
-CREATE TABLE Monteur(
-   id INT,
-   CONSTRAINT Monteur_PK PRIMARY KEY(id),
-   CONSTRAINT Monteur_GlobalUser_FK FOREIGN KEY(id) REFERENCES GlobalUser(id)
-);
-
 CREATE TABLE Motherboard(
    id INT,
    socket VARCHAR(50),
@@ -116,13 +85,50 @@ CREATE TABLE Motherboard(
    CONSTRAINT Motherboard_Component_FK FOREIGN KEY(id) REFERENCES Component(id)
 );
 
+CREATE TABLE GlobalUser(
+   id INT AUTO_INCREMENT,
+   password VARCHAR(128),
+   CONSTRAINT GlobalUser_PK PRIMARY KEY(id)
+);
+
+CREATE TABLE Computer(
+   id INT AUTO_INCREMENT,
+   isLaptop BOOLEAN,
+   quantity VARCHAR(50),
+   dateAdd VARCHAR(50),
+   name VARCHAR(50),
+   idGlobalUser INT NOT NULL,
+   CONSTRAINT Computer_PK PRIMARY KEY(id),
+   CONSTRAINT Computer_GlobalUser_1_FK FOREIGN KEY(idGlobalUser) REFERENCES GlobalUser(id)
+);
+
+CREATE TABLE Concepteur(
+   idGlobalUser INT,
+   CONSTRAINT Concepteur_PK PRIMARY KEY(idGlobalUser),
+   CONSTRAINT Concepteur_GlobalUser_FK FOREIGN KEY(idGlobalUser) REFERENCES GlobalUser(id)
+);
+
+CREATE TABLE Monteur(
+   idGlobalUser INT,
+   CONSTRAINT Monteur_PK PRIMARY KEY(idGlobalUser),
+   CONSTRAINT Monteur_GlobalUser_FK FOREIGN KEY(idGlobalUser) REFERENCES GlobalUser(id)
+);
+
 CREATE TABLE Message(
    id INT AUTO_INCREMENT,
    dateAdd DATE,
    text VARCHAR(500),
-   id_1 INT NOT NULL,
-   id_2 INT NOT NULL,
+   idComputer INT NOT NULL,
+   idGlobalUser INT NOT NULL,
    CONSTRAINT Message_PK PRIMARY KEY(id),
-   CONSTRAINT Message_Ordinateur_1_FK FOREIGN KEY(id_1) REFERENCES Ordinateur(id),
-   CONSTRAINT Message_GlobalUser_2_FK FOREIGN KEY(id_2) REFERENCES GlobalUser(id)
+   CONSTRAINT Message_Computer_1_FK FOREIGN KEY(idComputer) REFERENCES Computer(id),
+   CONSTRAINT Message_GlobalUser_2_FK FOREIGN KEY(idGlobalUser) REFERENCES GlobalUser(id)
+);
+
+CREATE TABLE Assembler(
+   idComputer INT,
+   idComponent INT,
+   CONSTRAINT Assembler_PK PRIMARY KEY(idComputer, idComponent),
+   CONSTRAINT Assembler_Computer_FK FOREIGN KEY(idComputer) REFERENCES Computer(id),
+   CONSTRAINT Assembler_Component_1_FK FOREIGN KEY(idComponent) REFERENCES Component(id)
 );
