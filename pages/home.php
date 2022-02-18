@@ -1,3 +1,3 @@
 <div class="row">
-    <h1>Page home</h1>
+    <h1>Ajouter un ordinateur</h1>
 </div>

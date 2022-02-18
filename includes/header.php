@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'includes/variables/variables.php';
+include 'includes/variables/fixtures.php';
 include 'includes/functions/functions.php';
 ?>
 
