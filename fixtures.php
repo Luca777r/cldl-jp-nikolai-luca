@@ -123,5 +123,5 @@ foreach ($components as $component) {
             ]);
             break;
     }
-    var_dump($count);
+//    var_dump($count);
 }
