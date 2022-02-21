@@ -27,7 +27,7 @@ include 'includes/functions/functions.php';
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
-                    <a class="nav-link active" aria-current="page" href="?page=list"></a>
+                    <a class="nav-link active" aria-current="page" href="?page=selectComponent">Ajouter component</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

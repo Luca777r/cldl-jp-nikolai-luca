@@ -3,8 +3,8 @@
 include './includes/variables/fixtures.php';
 
 $dsn = 'mysql:dbname=cldl;port=8889;host=127.0.0.1';
-$user = 'root'; // Utilisateur par défaut
-$password = 'root'; // Par défaut, pas de mot de passe sur Wamp
+$user = 'root';
+$password = 'root';
 
 try {
     $connection = new PDO($dsn, $user, $password, [
@@ -73,7 +73,7 @@ foreach ($components as $component) {
             ]);
             break;
         case 'Motherboard':
-            $subStatement =$connection->prepare('INSERT INTO Motherboard VALUES (:id, :socket, :format)');
+            $subStatement = $connection->prepare('INSERT INTO Motherboard VALUES (:id, :socket, :format)');
             $subStatement->execute([
                 ':id' => $id,
                 ':socket' => $subData['socket'],
