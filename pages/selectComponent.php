@@ -4,10 +4,10 @@
     </div>
 
     <div class="col">
-        <form>
+        <form method="post" action="?page=pageComponent">
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Type component</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select name="type" class="form-control" id="exampleFormControlSelect1">
                     <?php
                     foreach ($typesComponents as $typeComponent) {
                         ?>
@@ -18,8 +18,7 @@
 
                 </select>
             </div>
-            <a type="submit" class="btn btn-primary" href="?page=pageComponent">Choisir</a>
+            <button type="submit" class="btn btn-primary">Choisir</button>
         </form>
     </div>
-
 </div>

@@ -1,19 +1,7 @@
 <?php
 
+include './includes/variables/variables.php';
 include './includes/variables/fixtures.php';
-
-$dsn = 'mysql:dbname=cldl;port=8889;host=127.0.0.1';
-$user = 'root';
-$password = 'root';
-
-try {
-    $connection = new PDO($dsn, $user, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    ]);
-} catch (PDOException $e) {
-    exit('Connexion échouée : ' . $e->getMessage());
-}
 
 $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE Component;SET FOREIGN_KEY_CHECKS=1;");
 $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE GraphicCard;SET FOREIGN_KEY_CHECKS=1;");
@@ -49,7 +37,6 @@ foreach ($components as $component) {
     switch ($component['categorie']) {
         case 'GraphicCard':
             $subStatement = $connection->prepare('INSERT INTO GraphicCard VALUES (:id, :chipset, :memory)');
-
             $subStatement->execute([
                 ':id' => $id,
                 ':chipset' => $subData['chipset'],
