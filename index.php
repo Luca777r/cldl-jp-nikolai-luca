@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/header.php';
 
-$page = 'home';
+$page = 'login';
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
@@ -17,6 +17,6 @@ if (isset($_POST['submit'])){
 }
 
 include_once 'pages/' . $page . '.php';
-include 'fixtures.php';
+//include 'fixtures.php';
 
 include_once 'includes/footer.php';

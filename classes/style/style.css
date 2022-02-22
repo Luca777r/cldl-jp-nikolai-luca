@@ -1,0 +1,12 @@
+.resize {
+    width: 700px;
+}
+
+.degrade {
+    background: rgb(202,201,214);
+background: linear-gradient(90deg, rgba(202,201,214,1) 0%, rgba(182,201,240,1) 67%, rgba(140,184,194,1) 100%);
+}
+
+.textCenter{
+    text-align:center;
+}
