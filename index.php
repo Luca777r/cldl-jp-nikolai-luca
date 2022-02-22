@@ -1,7 +1,7 @@
 <?php
 include_once 'includes/header.php';
 
-$page = 'home';
+$page = 'login';
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
 }
