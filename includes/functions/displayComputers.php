@@ -23,7 +23,7 @@ function displayComputers()
       <td><?= $computer->getIsLaptop()?></td>
       <td><?= $computer->getDateAdd()->format("Y-m-d")?></td>
       <td><a href="?page=designer&del=<?=$computer->getId()?>"><button class="btn btn-danger">Supprimer</button></a></td>
-      <td><a href="?page=update&upd=<?=$computer->getId()?>&name=<?=$computer->getName()?>&quantity=<?=$computer->getQuantity()?>&islaptop=<?=$computer->getIsLaptop()?>&date=<?=$computer->getdateAdd()->format("Y-m-d")?>"><button class="btn btn-success">Editer</button></a></td>
+      <td><a href="?page=update&id=<?=$computer->getId()?>"><button class="btn btn-success">Editer</button></a></td>
     </tr>
       <?php } ?>
   </tbody>

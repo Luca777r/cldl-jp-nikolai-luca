@@ -29,7 +29,8 @@ function readComputer($id)
     $con = getDataBaseConnexion();
     $request = "SELECT * FROM Computer where id = $id";
     $stmt = $con->query($request);
-    return $stmt->fetch(PDO::FETCH_CLASS, Computer::class);
+    $stmt->setFetchMode(PDO::FETCH_CLASS, Computer::class);
+    return $stmt->fetch();
 }
 
 function createComputer($name, $quantity, $isLaptop, $dateAdd)
