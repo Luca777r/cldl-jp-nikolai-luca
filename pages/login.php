@@ -15,41 +15,7 @@
 
     <header>
     </header>
-    <?php
 
-    $pageTitle = "Connexion";
-
-
-    $loginErrors = [];
-    $defaultPassword = "toto";
-
-
-    if (isset($_POST["username"]) && isset($_POST["password"])) {
-        $password = $_POST["password"];
-
-        if (empty($password)) {
-            $loginErrors[] = "Veuillez saisir un mot de passe";
-        } elseif ($password != $defaultPassword) {
-            $loginErrors[] = "Mot de passe incorrecte";
-        }
-
-        if (empty($loginErrors)) {
-            $_SESSION["username"] = $_POST["username"];
-            header("Location: index.php?page=home&loginSuccess=1");
-        }
-        foreach ($loginErrors as $loginError) {
-    ?>
-            <div class="alert alert-danger" role="alert">
-                <?= $loginError; ?>
-            </div>
-        <?php
-        }
-        ?>
-
-    <?php
-    }
-
-    ?>
 
     <div class="container-fluid">
         <div class="row d-flex justify-content-center mt-5 mb-5">
@@ -63,21 +29,55 @@
                     <label for="exampleInputPassword1">Mot de passe</label>
                     <input type="password" class="textCenter form-control" id="password" name="password" placeholder="Entrer mot de passe">
                 </div>
-                <div class="form-check m-4">
-                    <button type="submit" class="textCenter btn btn-primary">Connexion</button>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Connexion</button>
                 </div>
 
 
             </form>
         </div>
-    </div>
-</body>
-<?php
-if (isset($_GET["loginSucces"]) && $_GET["loginSucces"] == 1) {
-?>
-    <div class="alert alert-success" role="alert">
-        Vous êtes bien connecté
+        <?php
+
+        $pageTitle = "Connexion";
+
+
+        $loginErrors = [];
+        $defaultPassword = "toto";
+
+
+        if (isset($_POST["username"]) && isset($_POST["password"])) {
+            $password = $_POST["password"];
+            $username = $_POST["username"];
+
+            if (empty($password)) {
+                $loginErrors[] = "Veuillez saisir un mot de passe";
+            } elseif ($password != $defaultPassword) {
+                $loginErrors[] = "Mot de passe incorrecte";
+            }
+
+            if (empty($username)) {
+                $loginErrors[] = "Veuillez saisir une adresse";
+            }
+
+            if (empty($loginErrors)) {
+                $_SESSION["username"] = $_POST["username"];
+                header("Location: index.php?page=home&loginSuccess=1");
+            }
+            foreach ($loginErrors as $loginError) {
+        ?>
+                <div class="d-flex justify-content-center alert alert-danger" role="alert">
+                    <?= $loginError; ?>
+                </div>
+            <?php
+            }
+            ?>
+
+        <?php
+        }
+
+        ?>
+
+
     </div>
 
-<?php
-}
+</body>
