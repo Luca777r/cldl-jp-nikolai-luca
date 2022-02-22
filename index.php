@@ -7,6 +7,6 @@ if (isset($_GET['page'])) {
 }
 
 include_once 'pages/' . $page . '.php';
-include 'fixtures.php';
+//include 'fixtures.php';
 
 include_once 'includes/footer.php';

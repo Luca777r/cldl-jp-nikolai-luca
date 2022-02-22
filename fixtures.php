@@ -1,5 +1,6 @@
 <?php
 
+include './includes/variables/variables.php';
 include './includes/variables/fixtures.php';
 
 $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE Component;SET FOREIGN_KEY_CHECKS=1;");

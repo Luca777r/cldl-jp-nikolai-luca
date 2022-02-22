@@ -3,30 +3,18 @@ if (isset($_POST['type'])) {
     $type = $_POST['type'];
 }
 if (isset($_POST['model'])) {
-    $sql = "INSERT INTO `Component`(`categorie`, `model`, `brand`, `price`, `quantity`, `dateAdd`, `isPeripheral`) VALUES (':categorie',':model',':brand',':price',':quantity',':dateAdd',':isPeripheral')";
+    $sql = "INSERT INTO `Component`(`categorie`, `model`, `brand`, `price`, `quantity`, `dateAdd`, `isPeripheral`) VALUES (:categorie,:model,:brand,:price,:quantity,:dateAdd,:isPeripheral)";
     $pdoStatement = $connection->prepare($sql);
-    $_POST['price'] = intval($_POST['price'] * 100);
-//    exit(var_dump($_POST));
-//    $pdoStatement->bindParam(':categorie', $type);
-//    $pdoStatement->bindParam(':model', $_POST['model']);
-//    $pdoStatement->bindParam(':brand', $_POST['brand']);
-//    $pdoStatement->bindParam(':price', $_POST['price']);
-//    $pdoStatement->bindParam(':quantity', $_POST['quantity'], PDO::PARAM_INT);
-//    $pdoStatement->bindParam(':numberCreated', $_POST['numberCreated'], PDO::PARAM_INT);
-//    $pdoStatement->bindParam(':dateAdd', $_POST['dateAdd']);
-//    $pdoStatement->bindParam(':isPeripheral', $_POST['isPeripheral'], PDO::PARAM_INT);
     $count = $pdoStatement->execute([
         ':categorie' => $type,
         ':model' => $_POST['model'],
         ':brand' => $_POST['brand'],
         ':price' => $_POST['price'],
         ':quantity' => $_POST['quantity'],
-        ':numberCreated' => $_POST['numberCreated'],
         ':dateAdd' => $_POST['dateAdd'],
-        ':isPeripheral' => $_POST['isPeripheral'],
+        ':isPeripheral' => !empty($_POST['isPeripheral']) ? 1 : 0
     ]);
     $id = $connection->lastInsertId();
-
 }
 ?>
 
@@ -34,6 +22,12 @@ if (isset($_POST['model'])) {
         <div class="col">
             <h2>Ajouter un <?= $type ?></h2>
         </div>
+
+        <?php
+        if (isset($count) && $count > 0) {
+            echo "<div class='alert alert-success'>Component a ajouté</div>";
+        }
+        ?>
 
         <div class="col">
             <form method="post" action>
@@ -95,6 +89,7 @@ if (isset($_POST['model'])) {
                             ]);
                         }
                         break;
+
                     case 'Keyboard':
                         ?>
                         <div class="form-row">
@@ -118,7 +113,17 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO Keyboard VALUES (:id, :isWired, :hasNumKeypad, :keypadType)');
+                            $subStatement->execute([
+                                ':id' => $id,
+                                'isWired' => !empty($_POST['isWired']) ? 1 : 0,
+                                'hasNumKeypad' => !empty($_POST['hasNumKeypad']) ? 1 : 0,
+                                'keypadType' => $_POST['keypadType'],
+                            ]);
+                        }
                         break;
+
                     case 'Monitor':
                         ?>
                         <div class="form-row">
@@ -129,7 +134,16 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO Monitor VALUES (:id, :diagonalSize)');
+//                            $_POST['diagonalSize'] = floatval($_POST['diagonalSize']);
+                            $subStatement->execute([
+                                ':id' => $id,
+                                ':diagonalSize' => $_POST['diagonalSize'],
+                            ]);
+                        }
                         break;
+
                     case 'Motherboard':
                         ?>
                         <div class="form-row">
@@ -143,7 +157,16 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO Motherboard VALUES (:id, :socket, :format)');
+                            $subStatement->execute([
+                                ':id' => $id,
+                                ':socket' => $_POST['socket'],
+                                ':format' => $_POST['format']
+                            ]);
+                        }
                         break;
+
                     case 'Mouse':
                         ?>
                         <div class="form-row">
@@ -167,7 +190,17 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO Mouse VALUES (:id, :isWired, :isPad, :numKey)');
+                            $subStatement->execute([
+                                ':id' => $id,
+                                'isWired' => !empty($_POST['isWired']) ? 1 : 0,
+                                'isPad' => !empty($_POST['isPad']) ? 1 : 0,
+                                'numKey' => $_POST['numKey'],
+                            ]);
+                        }
                         break;
+
                     case 'PowerSupply':
                         ?>
                         <div class="form-row">
@@ -178,7 +211,15 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO PowerSupply VALUES (:id, :powerSupply)');
+                            $subStatement->execute([
+                                ':id' => $id,
+                                ':powerSupply' => $_POST['powerSupply'],
+                            ]);
+                        }
                         break;
+
                     case 'Processor':
                         ?>
                         <div class="form-row">
@@ -197,7 +238,17 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO Processor VALUES (:id, :frequences, :nbCore, :chipset)');
+                            $subStatement->execute([
+                                ':id' => $id,
+                                ':frequences' => $_POST['frequences'],
+                                ':nbCore' => $_POST['nbCore'],
+                                ':chipset' => $_POST['chipset'],
+                            ]);
+                        }
                         break;
+
                     case 'Ram':
                         ?>
                         <div class="form-row">
@@ -217,7 +268,17 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO Ram VALUES (:id, :memory, :nbStrip, :typeFrequences)');
+                            $subStatement->execute([
+                                ':id' => $id,
+                                ':memory' => $_POST['memory'],
+                                ':nbStrip' => $_POST['nbStrip'],
+                                ':typeFrequences' => $_POST['typeFrequences'],
+                            ]);
+                        }
                         break;
+
                     case 'StorageSystem':
                         ?>
                         <div class="form-row">
@@ -235,6 +296,14 @@ if (isset($_POST['model'])) {
                             </div>
                         </div>
                         <?php
+                        if (isset($id)) {
+                            $subStatement = $connection->prepare('INSERT INTO StorageSystem VALUES (:id, :isSsd, :memory)');
+                            $subStatement->execute([
+                                ':id' => $id,
+                                'isSsd' => !empty($_POST['isSsd']) ? 1 : 0,
+                                'memory' => $_POST['memory'],
+                            ]);
+                        }
                         break;
                 }
                 ?>
