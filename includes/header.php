@@ -2,6 +2,7 @@
 session_start();
 include 'includes/variables/fixtures.php';
 include 'includes/functions/functions.php';
+include 'variables/bd.php';
 ?>
 
 <!DOCTYPE html>
