@@ -1,7 +1,15 @@
 <?php
 session_start();
+
+spl_autoload_register(function ($class) {
+    $class = str_replace('\\', '/', $class);
+    require_once "classes/$class.php";
+});
+
 include 'includes/variables/fixtures.php';
 include 'includes/functions/functions.php';
+require_once 'functions/displayComputers.php';
+require_once 'functions/CRUD.php';
 ?>
 
 <!DOCTYPE html>
