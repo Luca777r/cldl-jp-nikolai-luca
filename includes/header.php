@@ -15,7 +15,6 @@ include 'variables/bd.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +25,6 @@ include 'variables/bd.php';
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="?page=home">LCDL gestion les ordinateurs</a>
@@ -36,7 +34,7 @@ include 'variables/bd.php';
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item ">
-                        <a class="nav-link active" aria-current="page" href="?page=selectComponent">Ajouter component</a>
+                        <a class="nav-link active" aria-current="page" href="?page=selectTypeComponent">Ajouter component</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

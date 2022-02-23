@@ -4,7 +4,7 @@
     </div>
 
     <div class="col">
-        <form method="post" action="?page=pageComponent">
+        <form method="post" action="?page=createComponent">
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Type component</label>
                 <select name="type" class="form-control" id="exampleFormControlSelect1">
