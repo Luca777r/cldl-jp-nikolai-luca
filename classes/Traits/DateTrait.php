@@ -7,17 +7,11 @@ use DateTime;
 trait DateTrait
 {
     private ?string $dateAdd;
-    
-    public function __construct()
-    {
-        $this->dateAdd = (new DateTime())->format('Y-m-d');
-    }
 
     public function getDateAdd(): DateTime
     {
         return new DateTime($this->dateAdd);
     }
-
 
     public function setDateAdd($date): self
     {

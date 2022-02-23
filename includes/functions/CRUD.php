@@ -68,3 +68,33 @@ function deleteComputer($id)
         echo $sql . "<br>" . $e->getMessage();
     }
 }
+
+function getAllComponents()
+{
+    $connection = getDataBaseConnexion();
+    $sql = 'SELECT * FROM Component';
+    $query = $connection->query($sql);
+    $result = $query->fetchAll(PDO::FETCH_CLASS, Component::class);
+    return $result;
+}
+
+function deleteComponent($id)
+{
+    try {
+        $connection = getDataBaseConnexion();
+
+        $statement = $connection->query("SELECT * FROM Component WHERE id = $id");
+        $statement->setFetchMode(PDO::FETCH_CLASS, Component::class);
+
+        $component = $statement->fetch();
+        $categorie = $component->getCategorie();
+
+        $sql2 = "DELETE FROM $categorie WHERE id = $id ";
+        $sql = "DELETE FROM Component WHERE id = $id ";
+        $query2 = $connection->exec($sql2);
+        $query = $connection->exec($sql);
+        header('location: ?page=listComponents');
+    } catch (PDOException $e) {
+        echo $e . "<br>" . $e->getMessage();
+    }
+}

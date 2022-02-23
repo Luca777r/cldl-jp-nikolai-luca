@@ -3,7 +3,7 @@
 use Traits\ComponentTrait;
 use Traits\DateTrait;
 
-abstract class Component
+class Component
 {
     protected ?int $id;
     protected ?string $categorie;
@@ -14,22 +14,10 @@ abstract class Component
     use DateTrait;
     use ComponentTrait;
 
-    public function __construct(string $categorie, string $model, string $brand, float $price, bool $isPeripheral)
-    {
-        $this->categorie = $categorie;
-        $this->model = $model;
-        $this->brand = $brand;
-        $this->price = $price;
-        $this->isPeripheral = $isPeripheral;
-    }
-
-
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
 
     public function setId($id): self
     {
@@ -38,12 +26,10 @@ abstract class Component
         return $this;
     }
 
-
     public function getCategorie(): string
     {
         return $this->categorie;
     }
-
 
     public function setCategorie($categorie): self
     {
@@ -52,12 +38,10 @@ abstract class Component
         return $this;
     }
 
-
     public function getModel(): string
     {
         return $this->model;
     }
-
 
     public function setModel($model): self
     {
@@ -66,12 +50,10 @@ abstract class Component
         return $this;
     }
 
-
     public function getBrand(): string
     {
         return $this->brand;
     }
-
 
     public function setBrand($brand): self
     {
@@ -80,12 +62,10 @@ abstract class Component
         return $this;
     }
 
-
     public function getPrice(): float
     {
         return $this->price;
     }
-
 
     public function setPrice($price): self
     {
@@ -98,7 +78,6 @@ abstract class Component
     {
         return $this->isPeripheral;
     }
-
 
     public function setIsPeripheral($isPeripheral): self
     {

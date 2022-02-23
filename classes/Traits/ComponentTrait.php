@@ -6,18 +6,11 @@ trait ComponentTrait
 {
     private ?int $quantity;
     private ?int $numberCreated;
-    
-    public function __construct(int $quantity, int $numberCreated)
-    {
-        $this->quantity = $quantity;
-        $this->numberCreated = $numberCreated;
-    }
 
     public function getQuantity(): int
     {
         return $this->quantity;
     }
-
 
     public function setQuantity($quantity): self
     {
@@ -26,13 +19,12 @@ trait ComponentTrait
         return $this;
     }
 
-    public function getnumberCreated(): int
+    public function getNumberCreated(): ?int
     {
         return $this->numberCreated;
     }
 
-
-    public function setnumberCreated($numberCreated): self
+    public function setNumberCreated($numberCreated): self
     {
         $this->numberCreated = $numberCreated;
 
