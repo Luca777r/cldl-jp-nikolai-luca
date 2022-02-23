@@ -8,12 +8,6 @@ class Message
     protected ?string $text;
     protected ?int $id;
 
-    public function __construct(string $text, int $id)
-    {
-        $this->text = $text;
-        $this->id = $id;
-    }
-
     public function getText(): ?string
     {
         return $this->text;

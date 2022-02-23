@@ -6,14 +6,6 @@ class Ram extends Component
     protected ?int $nbStrip;
     protected ?string $typeFrequences;
 
-    function __construct(float $memory, int $nbStrip, string $typeFrequences)
-    {
-        $this->memory = $memory;
-        $this->nbStrip = $nbStrip;
-        $this->typeFrequences = $typeFrequences;
-    }
-
-
     public function getMemory(): float
     {
         return $this->memory;

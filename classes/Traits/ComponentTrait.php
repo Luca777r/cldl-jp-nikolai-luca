@@ -4,14 +4,9 @@ namespace Traits;
 
 trait ComponentTrait
 {
-    private ?int $quantity;
-    private ?int $numberCreated;
-    
-    public function __construct(int $quantity, int $numberCreated)
-    {
-        $this->quantity = $quantity;
-        $this->numberCreated = $numberCreated;
-    }
+    protected ?int $quantity;
+    protected ?int $numberCreated;
+
 
     public function getQuantity(): int
     {

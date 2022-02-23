@@ -8,12 +8,6 @@ class Mouse extends Component
     protected ?bool $isPad;
     protected ?int $numKey;
     
-    public function __construct(bool $isPad, int $numKey)
-    {
-        $this->isPad = $isPad;
-        $this->numKey = $numKey;
-    }
-
     public function getIsPad(): ?bool
     {
         return $this->isPad;
