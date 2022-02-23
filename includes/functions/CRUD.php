@@ -68,3 +68,13 @@ function deleteComputer($id)
         echo $sql . "<br>" . $e->getMessage();
     }
 }
+
+function getAllProperties(string $key): array
+{
+    $con = getDataBaseConnexion();
+    $request = "SELECT * FROM Component INNER JOIN $key ON $key.id = Component.id";
+    $stmt = $con->query($request);
+    $stmt->setFetchMode(PDO::FETCH_CLASS, $key);
+    return $stmt->fetchAll();
+}
+
