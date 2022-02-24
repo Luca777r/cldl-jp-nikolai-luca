@@ -5,8 +5,6 @@ $computer = readComputer($_GET['id']);
 if (!empty($_POST)) {
     updateComputer($_GET['id'], $_POST['name'], $_POST['quantity'], $_POST['islaptop'], $_POST['date']);
 }
-
-
 ?>
 
 <form action="" method='POST'>

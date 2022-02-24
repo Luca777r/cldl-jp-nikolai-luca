@@ -4,9 +4,9 @@ function displayComputers()
 {
     ?>
     <table class="table table-striped table-hover">
-        <thead class="table-dark">
+        <thead class="table-dark text-center"">
         <tr>
-            <th scope="col">#</th>
+            <th scope="col" >#</th>
             <th scope="col">Nom</th>
             <th scope="col">Quantité</th>
             <th scope="col">Si portable</th>

@@ -313,8 +313,6 @@ if (isset($_POST['model'])) {
         </div>
     </div>
 
-<?php
-
 
 
 

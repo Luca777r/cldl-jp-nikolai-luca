@@ -7,12 +7,6 @@ class Keyboard extends Component
     use WiredTrait;
     protected ?bool $hasNumKeypad;
     protected ?string $keypadType;
-    
-    public function __construct(bool $hasNumKeypad, string $keypadType)
-    {
-        $this->hasNumKeypad = $hasNumKeypad;
-        $this->keypadType = $keypadType;
-    }
 
     public function getHasNumKeypad(): ?bool
     {

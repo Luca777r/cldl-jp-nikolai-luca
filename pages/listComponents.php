@@ -1,16 +1,16 @@
 <table class="table table-striped table-hover">
     <thead class="table-dark">
     <tr>
-        <th scope="col">#</th>
-        <th scope="col">Categorie</th>
-        <th scope="col">Model</th>
-        <th scope="col">Marque</th>
-        <th scope="col">Prix</th>
-        <th scope="col">Quantité</th>
-        <th scope="col">Nombre de modèles avec cette pieces</th>
-        <th scope="col">Date d'ajout</th>
-        <th scope="col">Supprimer</th>
-        <th scope="col">Editer</th>
+        <th scope="col" class="align-middle">#</th>
+        <th scope="col" class="align-middle">Categorie</th>
+        <th scope="col" class="align-middle">Model</th>
+        <th scope="col" class="align-middle">Marque</th>
+        <th scope="col" class="align-middle">Prix</th>
+        <th scope="col" class="align-middle">Quantité</th>
+        <th scope="col" class="align-middle">Nombre de modèles avec cette pieces</th>
+        <th scope="col" class="align-middle">Date d'ajout</th>
+        <th scope="col" class="align-middle">Supprimer</th>
+        <th scope="col" class="align-middle">Editer</th>
     </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
                 </a>
             </td>
             <td>
-                <a href="?page=update&id=<?= $component->getId() ?>">
+                <a href="?page=updateComponent&id=<?= $component->getId() ?>">
                     <button class="btn btn-success">Editer</button>
                 </a>
             </td>

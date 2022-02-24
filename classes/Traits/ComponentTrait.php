@@ -4,8 +4,8 @@ namespace Traits;
 
 trait ComponentTrait
 {
-    private ?int $quantity;
-    private ?int $numberCreated;
+    protected ?int $quantity;
+    protected ?int $numberCreated;
 
     public function getQuantity(): int
     {
