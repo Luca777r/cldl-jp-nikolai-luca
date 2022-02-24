@@ -2,6 +2,7 @@
 
 include './includes/variables/variables.php';
 include './includes/variables/fixtures.php';
+include './includes/variables/bd.php';
 
 $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE Component;SET FOREIGN_KEY_CHECKS=1;");
 $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE GraphicCard;SET FOREIGN_KEY_CHECKS=1;");
@@ -110,5 +111,36 @@ foreach ($components as $component) {
             ]);
             break;
     }
-//    var_dump($count);
+    //    var_dump($count);
+}
+
+$connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE GlobalUser;SET FOREIGN_KEY_CHECKS=1;");
+$connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE Concepteur;SET FOREIGN_KEY_CHECKS=1;");
+$connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE Monteur;SET FOREIGN_KEY_CHECKS=1;");
+
+$sql = "INSERT INTO GlobalUser (email, password) VALUES (:email, :password)";
+
+$pdoStatement = $connection->prepare($sql);
+
+foreach ($users as $user) {
+    $pdoStatement->bindParam(':email', $user['id']);
+    $pdoStatement->bindParam(':password', $user['password']);
+
+    $count = $pdoStatement->execute();
+    $id = $connection->lastInsertId();
+
+    switch ($user['type']) {
+        case 'Monteur':
+            $subStatement = $connection->prepare('INSERT INTO Monteur VALUES (:id)');
+            $subStatement->execute([
+                ':id' => $id,
+            ]);
+            break;
+        case 'Concepteur':
+            $subStatement = $connection->prepare('INSERT INTO Concepteur VALUES (:id)');
+            $subStatement->execute([
+                ':id' => $id,
+            ]);
+            break;
+    }
 }

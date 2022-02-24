@@ -4,6 +4,7 @@ class GlobalUser
 {
     protected ?int $id;
     protected ?string $password;
+    protected ?string $email;
 
     /**
      * @param int|null $id
@@ -45,5 +46,17 @@ class GlobalUser
     public function setPassword(?string $password): void
     {
         $this->password = $password;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }

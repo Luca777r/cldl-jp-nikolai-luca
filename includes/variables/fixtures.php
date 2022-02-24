@@ -259,3 +259,26 @@ $components = [
         ],
     ]
 ];
+
+$users = [
+    [
+        'id' => 'tony@cldl.com',
+        'type' => 'Monteur',
+        'password' => 'tony',
+    ],
+    [
+        'id' => 'deny@cldl.com',
+        'type' => 'Concepteur',
+        'password' => 'deny',
+    ],
+    [
+        'id' => 'donny@mcldl.com',
+        'type' => 'Monteur',
+        'password' => 'donny',
+    ],
+    [
+        'id' => 'johnny@cldl.com',
+        'type' => 'Concepteur',
+        'password' => 'johnny',
+    ],
+];

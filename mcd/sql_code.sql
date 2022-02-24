@@ -88,6 +88,7 @@ CREATE TABLE Motherboard(
 CREATE TABLE GlobalUser(
    id INT AUTO_INCREMENT,
    password VARCHAR(128),
+   email VARCHAR(128),
    CONSTRAINT GlobalUser_PK PRIMARY KEY(id)
 );
 
