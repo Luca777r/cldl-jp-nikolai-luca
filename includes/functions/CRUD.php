@@ -33,12 +33,13 @@ function readComputer($id)
     return $stmt->fetch();
 }
 
-function createComputer($name, $quantity, $isLaptop, $dateAdd)
+function createComputer($name, $quantity, $isLaptop, $dateAdd, $idUser): ?int
 {
     try {
         $con = getDataBaseConnexion();
-        $sql = "INSERT INTO Computer (name, quantity, isLaptop, dateAdd) VALUES ($name, $quantity, $isLaptop, $dateAdd)";
+        $sql = "INSERT INTO Computer (name, quantity, isLaptop, dateAdd, idGlobalUser) VALUES ('$name', $quantity, $isLaptop, '$dateAdd', $idUser)";
         $con->exec($sql);
+        return $con->lastInsertId();
     } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
@@ -76,5 +77,15 @@ function getAllProperties(string $key): array
     $stmt = $con->query($request);
     $stmt->setFetchMode(PDO::FETCH_CLASS, $key);
     return $stmt->fetchAll();
+}
+
+function createAssembler($idcomputer, $idcomponent){
+    try{
+        $con = getDataBaseConnexion();
+        $sql = "INSERT INTO Assembler (idComputer, idComponent) VALUES ($idcomputer, $idcomponent)";
+        $con->exec($sql);
+    } catch (PDOException $e){
+        echo $sql . "<br>" . $e->getMessage();
+    }
 }
 

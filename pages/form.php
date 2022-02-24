@@ -1,8 +1,6 @@
 <?php
 
 include_once 'pages/formValidation.php';
-var_dump([$_POST]);
-
 ?>
 
 
@@ -35,7 +33,7 @@ var_dump([$_POST]);
         <div class="form-group mt-3">
             <label for="exampleFormControlSelect1">Carte Graphique</label>
             <select class="form-control" name="GraphicCard" required>
-                <option selected>Ouvrir le menu</option>
+                <option value="" selected>Ouvrir le menu</option>
                 <?php
                 $key = 'GraphicCard';
                 foreach (getAllProperties($key) as $property) {
@@ -51,7 +49,7 @@ var_dump([$_POST]);
         $key = 'Monitor';
         foreach (getAllProperties($key) as $property) { ?>
             <div class="form-check">
-                <input class="form-check-input" name="Monitor" type="checkbox" value="<?= $property->getId() ?>">
+                <input class="form-check-input" name="Monitor[]" type="checkbox" value="<?= $property->getId() ?>">
                 <label class="form-check-label" for="flexCheckDefault">
                     <?= $property->getModel(); ?>
                 </label>
@@ -63,7 +61,7 @@ var_dump([$_POST]);
         <div class="form-group mt-3">
             <label for="exampleFormControlSelect1">Carte Mère</label>
             <select class="form-control" name="Motherboard" required>
-                <option selected>Ouvrir le menu</option>
+                <option value="" selected>Ouvrir le menu</option>
                 <?php
                 $key = 'Motherboard';
                 foreach (getAllProperties($key) as $property) {
@@ -76,8 +74,8 @@ var_dump([$_POST]);
 
         <div class="form-group">
             <label for="exampleFormControlSelect1">Processeur</label>
-            <select class="form-control" name="Processor" required>
-                <option selected>Ouvrir le menu</option>
+            <select class="form-control"name="Processor" required>
+                <option value="" selected>Ouvrir le menu</option>
                 <?php
                 $key = 'Processor';
                 foreach (getAllProperties($key) as $property) {
@@ -93,7 +91,7 @@ var_dump([$_POST]);
         $key = 'Ram';
         foreach (getAllProperties($key) as $property) { ?>
             <div class="form-check">
-                <input class="form-check-input" name="Ram" type="checkbox" value="<?= $property->getId() ?>">
+                <input class="form-check-input" name="Ram[]" type="checkbox" value="<?= $property->getId() ?>">
                 <label class="form-check-label" for="flexCheckDefault">
                     <?= $property->getModel(); ?>
                 </label>
@@ -105,7 +103,7 @@ var_dump([$_POST]);
         <div class="form-group mt-3">
             <label for="exampleFormControlSelect1">Clavier</label>
             <select class="form-control" name="Keyboard" required>
-                <option selected>Ouvrir le menu</option>
+                <option value="" selected>Ouvrir le menu</option>
                 <?php
                 $key = 'Keyboard';
                 foreach (getAllProperties($key) as $property) {
@@ -119,7 +117,7 @@ var_dump([$_POST]);
         <div class="form-group">
             <label for="exampleFormControlSelect1">Souris</label>
             <select class="form-control" name="Mouse"required>
-                <option selected>Ouvrir le menu</option>
+                <option value="" selected>Ouvrir le menu</option>
                 <?php
                 $key = 'Mouse';
                 foreach (getAllProperties($key) as $property) {
@@ -135,7 +133,7 @@ var_dump([$_POST]);
         $key = 'StorageSystem';
         foreach (getAllProperties($key) as $property) { ?>
             <div class="form-check">
-                <input class="form-check-input" name="StorageSystem" type="checkbox" value="<?= $property->getId() ?>">
+                <input class="form-check-input" name="StorageSystem[]" type="checkbox" value="<?= $property->getId() ?>">
                 <label class="form-check-label" for="flexCheckDefault">
                     <?= $property->getModel(); ?>
                 </label>
@@ -147,7 +145,7 @@ var_dump([$_POST]);
         <div class="form-group mt-3">
             <label for="exampleFormControlSelect1">Alimentation</label>
             <select class="form-control" name="PowerSupply" required>
-                <option selected>Ouvrir le menu</option>
+                <option value="" selected>Ouvrir le menu</option>
                 <?php
                 $key = 'PowerSupply';
                 foreach (getAllProperties($key) as $property) {
