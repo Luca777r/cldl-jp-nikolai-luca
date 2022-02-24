@@ -14,16 +14,6 @@ abstract class Component
     use DateTrait;
     use ComponentTrait;
 
-    public function __construct(string $categorie, string $model, string $brand, float $price, bool $isPeripheral)
-    {
-        $this->categorie = $categorie;
-        $this->model = $model;
-        $this->brand = $brand;
-        $this->price = $price;
-        $this->isPeripheral = $isPeripheral;
-    }
-
-
 
     public function getId(): ?int
     {

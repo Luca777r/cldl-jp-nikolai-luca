@@ -5,13 +5,6 @@ class StorageSystem extends Component
     protected ?bool $isSsd;
     protected ?int $memory;
 
-    function __construct(bool $isSsd, int $memory)
-    {
-        $this->isSsd = $isSsd;
-        $this->memory = $memory;
-    }
-
-
     public function getIsSsd(): ?bool
     {
         return $this->isSsd;

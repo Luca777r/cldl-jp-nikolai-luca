@@ -4,12 +4,6 @@ class PowerSupply extends Component
 {
     protected ?float $powerSupply;
 
-    function __construct(float $powerSupply)
-    {
-        $this->powerSupply = $powerSupply;
-    }
-
-
     public function getPowerSupply(): ?float
     {
         return $this->powerSupply;

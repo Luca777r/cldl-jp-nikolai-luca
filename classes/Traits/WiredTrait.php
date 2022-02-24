@@ -4,11 +4,8 @@ namespace Traits;
 
 trait WiredTrait
 {
-    private ?bool $isWired;
+    protected ?bool $isWired;
     
-    public function __construct(bool $isWired){
-        $this->isWired = $isWired;
-    }
 
     public function getIsWired(): ?bool
     {

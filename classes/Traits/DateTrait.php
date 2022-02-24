@@ -6,13 +6,9 @@ use DateTime;
 
 trait DateTrait
 {
-    private ?string $dateAdd;
+    protected ?string $dateAdd;
     
-    public function __construct()
-    {
-        $this->dateAdd = (new DateTime())->format('Y-m-d');
-    }
-
+    
     public function getDateAdd(): DateTime
     {
         return new DateTime($this->dateAdd);

@@ -9,12 +9,6 @@ class GlobalUser
      * @param int|null $id
      * @param string|null $password
      */
-    public function __construct(?int $id, ?string $password)
-    {
-        $this->id = $id;
-        $this->password = $password;
-    }
-
     /**
      * @return int|null
      */
