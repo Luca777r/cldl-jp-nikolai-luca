@@ -1,6 +1,22 @@
 <?php
 
+$components = [];
 $name = $islap = $graphiccard = $monitor = $motherboard = $processor = $ram = $keyboard = $mouse = $storageSystem = $powerSupply = "";
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $computer = readComputer($id);
+    $name = $computer->getName();
+    $islap = $computer->getIsLaptop();
+
+    $statement = $connection->query("SELECT idComponent FROM Assembler WHERE idComputer = $id");
+    $results = $statement->fetchAll();
+    
+    $components = array_map(function($result){
+        return $result['idComponent'];
+    }, $results);
+}
+
+
 $nameErr = $isLaptopErr = $graphiccardErr = $monitorErr = $motherboardErr = $processorErr = $ramErr = $keyboardErr = $mouseErr = $storageSystemErr = $powerSupplyErr = "";
 
 function test_input($data)
@@ -100,5 +116,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         createAssembler($id, $powerSupply);
     }
-    header('location: index.php?page=designer');
+   header('location: index.php?page=designer');
 }

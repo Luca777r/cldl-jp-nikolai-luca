@@ -79,13 +79,34 @@ function getAllProperties(string $key): array
     return $stmt->fetchAll();
 }
 
-function createAssembler($idcomputer, $idcomponent){
-    try{
+function createAssembler($idcomputer, $idcomponent)
+{
+    try {
         $con = getDataBaseConnexion();
         $sql = "INSERT INTO Assembler (idComputer, idComponent) VALUES ($idcomputer, $idcomponent)";
         $con->exec($sql);
-    } catch (PDOException $e){
+    } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
 }
 
+
+
+function updateForm($id)
+{
+    $con = getDataBaseConnexion();
+    $request = "SELECT idComponent FROM Assembler WHERE idComputer = $id";
+    $stmt = $con->query($request);
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function pray($id){
+    $results = updateForm($id);
+$components = [];
+$components = array_map(function($result){
+        return $result['idComponent'];
+    }, $results);
+
+    var_dump($components);
+}

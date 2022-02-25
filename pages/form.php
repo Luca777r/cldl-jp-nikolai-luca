@@ -1,5 +1,4 @@
 <?php
-
 include_once 'pages/formValidation.php';
 ?>
 
@@ -8,20 +7,20 @@ include_once 'pages/formValidation.php';
     <form action="" method="POST" class="bg-light p-4">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nom</label>
-            <input type="text" name="Name" class="form-control" required>
+            <input type="text" name="Name" class="form-control" required value="<?= $name ?>">
             <span class="error"> <?php echo $nameErr; ?></span>
         </div>
 
 
         <div class="form-check">
             <div>
-                <input class="form-check-input" name="IsLaptop" type="radio" value="1">
+                <input class="form-check-input" name="IsLaptop" type="radio" value="1" <?php if ($islap === 1) { echo 'checked'; } ?>>
                 <label class="form-check-label" for="exampleRadios1">
                     Laptop
                 </label>
             </div>
             <div>
-                <input class="form-check-input" name="IsLaptop" type="radio" value="0">
+                <input class="form-check-input" name="IsLaptop" type="radio" value="0" <?php if ($islap === 0) { echo 'checked'; } ?>>
                 <label class="form-check-label" for="exampleRadios2">
                     Tour
                 </label>
@@ -33,11 +32,11 @@ include_once 'pages/formValidation.php';
         <div class="form-group mt-3">
             <label for="exampleFormControlSelect1">Carte Graphique</label>
             <select class="form-control" name="GraphicCard" required>
-                <option value="" selected>Ouvrir le menu</option>
+                <option value="">Ouvrir le menu</option>
                 <?php
                 $key = 'GraphicCard';
                 foreach (getAllProperties($key) as $property) {
-                ?><option value="<?= $property->getId() ?>"><?= $property->getModel(); ?></option>
+                ?><option value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'selected'; } ?>><?= $property->getModel(); ?></option>
                 <?php } ?>
             </select>
             <span class="error"> <?php echo $graphiccardErr; ?></span>
@@ -49,7 +48,7 @@ include_once 'pages/formValidation.php';
         $key = 'Monitor';
         foreach (getAllProperties($key) as $property) { ?>
             <div class="form-check">
-                <input class="form-check-input" name="Monitor[]" type="checkbox" value="<?= $property->getId() ?>">
+                <input class="form-check-input" name="Monitor[]" type="checkbox" value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'checked'; } ?>>
                 <label class="form-check-label" for="flexCheckDefault">
                     <?= $property->getModel(); ?>
                 </label>
@@ -65,7 +64,7 @@ include_once 'pages/formValidation.php';
                 <?php
                 $key = 'Motherboard';
                 foreach (getAllProperties($key) as $property) {
-                ?><option value="<?= $property->getId() ?>"><?= $property->getModel(); ?></option>
+                ?><option value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'selected'; } ?>><?= $property->getModel(); ?></option>
                 <?php } ?>
             </select>
             <span class="error"><?php echo $motherboardErr; ?></span>
@@ -79,7 +78,7 @@ include_once 'pages/formValidation.php';
                 <?php
                 $key = 'Processor';
                 foreach (getAllProperties($key) as $property) {
-                ?><option value="<?= $property->getId() ?>"><?= $property->getModel(); ?></option>
+                ?><option value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'selected'; } ?>><?= $property->getModel(); ?></option>
                 <?php } ?>
             </select>
             <span class="error"><?php echo $processorErr; ?></span>
@@ -91,7 +90,7 @@ include_once 'pages/formValidation.php';
         $key = 'Ram';
         foreach (getAllProperties($key) as $property) { ?>
             <div class="form-check">
-                <input class="form-check-input" name="Ram[]" type="checkbox" value="<?= $property->getId() ?>">
+                <input class="form-check-input" name="Ram[]" type="checkbox" value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'checked'; } ?>>
                 <label class="form-check-label" for="flexCheckDefault">
                     <?= $property->getModel(); ?>
                 </label>
@@ -107,7 +106,7 @@ include_once 'pages/formValidation.php';
                 <?php
                 $key = 'Keyboard';
                 foreach (getAllProperties($key) as $property) {
-                ?><option value="<?= $property->getId() ?>"><?= $property->getModel(); ?></option>
+                ?><option value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'selected'; } ?>><?= $property->getModel(); ?></option>
                 <?php } ?>
             </select>
             <span class="error"><?php echo $keyboardErr; ?></span>
@@ -121,7 +120,7 @@ include_once 'pages/formValidation.php';
                 <?php
                 $key = 'Mouse';
                 foreach (getAllProperties($key) as $property) {
-                ?><option value="<?= $property->getId() ?>"><?= $property->getModel(); ?></option>
+                ?><option value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'selected'; } ?>><?= $property->getModel(); ?></option>
                 <?php } ?>
             </select>
             <span class="error"><?php echo $mouseErr; ?></span>
@@ -133,7 +132,7 @@ include_once 'pages/formValidation.php';
         $key = 'StorageSystem';
         foreach (getAllProperties($key) as $property) { ?>
             <div class="form-check">
-                <input class="form-check-input" name="StorageSystem[]" type="checkbox" value="<?= $property->getId() ?>">
+                <input class="form-check-input" name="StorageSystem[]" type="checkbox" value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'checked'; } ?>>
                 <label class="form-check-label" for="flexCheckDefault">
                     <?= $property->getModel(); ?>
                 </label>
@@ -149,7 +148,7 @@ include_once 'pages/formValidation.php';
                 <?php
                 $key = 'PowerSupply';
                 foreach (getAllProperties($key) as $property) {
-                ?><option value="<?= $property->getId() ?>"><?= $property->getModel(); ?></option>
+                ?><option value="<?= $property->getId() ?>" <?php if (in_array($property->getId(), $components)) { echo 'selected'; } ?>><?= $property->getModel(); ?></option>
                 <?php } ?>
             </select>
             <span class="error"> <?php echo $powerSupplyErr; ?></span>
