@@ -8,8 +8,8 @@ spl_autoload_register(function ($class) {
 
 require_once 'functions/displayComputers.php';
 require_once 'functions/CRUD.php';
-include 'includes/variables/variables.php';
-include 'includes/functions/functions.php';
+include 'functions/functions.php';
+include 'variables/variables.php';
 include 'variables/bd.php';
 ?>
 

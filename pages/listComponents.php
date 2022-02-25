@@ -1,9 +1,22 @@
+<?php
+if (isset($_GET['sort'])) {
+    $components = orderBy($_GET['sort'], $_GET['direction']);
+} else {
+    $components = getAllComponents();
+}
+?>
+
 <table class="table table-striped table-hover">
     <thead class="table-dark">
     <tr>
         <th scope="col" class="align-middle">#</th>
-        <th scope="col" class="align-middle">Categorie</th>
-        <th scope="col" class="align-middle">Model</th>
+        <th scope="col" class="align-middle text-center">
+            Categorie
+        </th>
+        <th scope="col" class="align-middle">
+            Model
+            <a href="?page=listComponents&sort=model&direction=DESC" class="bi bi-caret-down"></a>
+        </th>
         <th scope="col" class="align-middle">Marque</th>
         <th scope="col" class="align-middle">Prix</th>
         <th scope="col" class="align-middle">Quantité</th>
@@ -14,7 +27,7 @@
     </tr>
     </thead>
     <tbody>
-    <?php foreach (getAllComponents() as $component) { ?>
+    <?php foreach ($components as $component) { ?>
         <tr>
             <th scope="row"><?= $component->getId() ?></th>
             <td><?= $component->getCategorie() ?></td>
@@ -46,3 +59,4 @@ if (isset($_GET['del'])) {
     deleteComponent($_GET['del']);
 }
 ?>
+

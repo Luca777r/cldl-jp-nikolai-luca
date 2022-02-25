@@ -149,5 +149,5 @@ function findComponents($id)
     $result = $stmt->fetchAll();
     return array_map(function ($result) {
         return $result['idComponent'];
-    }, $result);;
+    }, $result);
 }
