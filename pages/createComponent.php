@@ -136,7 +136,6 @@ if (isset($_POST['model'])) {
                         <?php
                         if (isset($id)) {
                             $subStatement = $connection->prepare('INSERT INTO Monitor VALUES (:id, :diagonalSize)');
-//                            $_POST['diagonalSize'] = floatval($_POST['diagonalSize']);
                             $subStatement->execute([
                                 ':id' => $id,
                                 ':diagonalSize' => $_POST['diagonalSize'],

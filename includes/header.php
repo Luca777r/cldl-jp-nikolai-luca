@@ -40,6 +40,10 @@ include 'variables/bd.php';
                         component</a>
                 </li>
                 <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" href="?page=form">Ajouter
+                        ordinateur</a>
+                </li>
+                <li class="nav-item ">
                     <a class="nav-link active" aria-current="page" href="?page=listComponents">Liste components</a>
                 </li>
                 <li class="nav-item ">

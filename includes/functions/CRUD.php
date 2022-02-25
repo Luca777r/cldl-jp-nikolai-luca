@@ -147,7 +147,7 @@ function findComponents($id)
     $request = "SELECT idComponent FROM Assembler WHERE idComputer = $id";
     $stmt = $con->query($request);
     $result = $stmt->fetchAll();
-    return array_map(function($result){
+    return array_map(function ($result) {
         return $result['idComponent'];
     }, $result);;
 }

@@ -95,7 +95,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE GraphicCard SET chipset = '$chipset', memory = $memory WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -136,7 +136,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE Keyboard SET keypadType = '$keypadType', hasNumKeypad = '$hasNumKeypad', isWired = '$isWired' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -155,7 +155,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE Monitor SET diagonalSize = '$diagonalSize' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -180,7 +180,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE Motherboard SET socket = '$socket', format = '$format' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -221,7 +221,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE Mouse SET numKey = '$numKey', isPad = '$isPad', isWired = '$isWired' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -240,7 +240,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE PowerSupply SET powerSupply = '$powerSupply' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -271,7 +271,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE Processor SET frequences = '$frequences', nbCore = '$nbCore', chipset = '$chipset' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -302,7 +302,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE Ram SET memory = '$memory', nbStrip = '$nbStrip', typeFrequences = '$typeFrequences' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
 
@@ -333,7 +333,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE StorageSystem SET memory = '$memory', isSsd = '$isSsd' WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&submit=1&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id=' . $id);
                     }
                     break;
             }
