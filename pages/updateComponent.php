@@ -24,7 +24,7 @@ if (!empty($_POST)) {
     </div>
 
     <?php
-    if (isset($_POST['submit'])) {
+    if (isset($_GET['submit'])) {
         echo "<div class='alert alert-success'>Component est mis à jour</div>";
     }
     ?>
@@ -95,7 +95,7 @@ if (!empty($_POST)) {
                         $connection = getDataBaseConnexion();
                         $sql = "UPDATE GraphicCard SET chipset = '$chipset', memory = $memory WHERE id = $id";
                         $connection->exec($sql);
-                        header('location: ?page=updateComponent&id='.$id);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -129,14 +129,14 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO Keyboard VALUES (:id, :isWired, :hasNumKeypad, :keypadType)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            'isWired' => !empty($_POST['isWired']) ? 1 : 0,
-                            'hasNumKeypad' => !empty($_POST['hasNumKeypad']) ? 1 : 0,
-                            'keypadType' => $_POST['keypadType'],
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $keypadType = $_POST['keypadType'];
+                        $hasNumKeypad = !empty($_POST['hasNumKeypad']) ? 1 : 0;
+                        $isWired = !empty($_POST['isWired']) ? 1 : 0;
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE Keyboard SET keypadType = '$keypadType', hasNumKeypad = '$hasNumKeypad', isWired = '$isWired' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -150,12 +150,12 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO Monitor VALUES (:id, :diagonalSize)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            ':diagonalSize' => $_POST['diagonalSize'],
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $diagonalSize = $_POST['diagonalSize'];
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE Monitor SET diagonalSize = '$diagonalSize' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -174,13 +174,13 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO Motherboard VALUES (:id, :socket, :format)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            ':socket' => $_POST['socket'],
-                            ':format' => $_POST['format']
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $socket = $_POST['socket'];
+                        $format = $_POST['format'];
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE Motherboard SET socket = '$socket', format = '$format' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -214,14 +214,14 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO Mouse VALUES (:id, :isWired, :isPad, :numKey)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            'isWired' => !empty($_POST['isWired']) ? 1 : 0,
-                            'isPad' => !empty($_POST['isPad']) ? 1 : 0,
-                            'numKey' => $_POST['numKey'],
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $numKey = $_POST['numKey'];
+                        $isPad = !empty($_POST['isPad']) ? 1 : 0;
+                        $isWired = !empty($_POST['isWired']) ? 1 : 0;
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE Mouse SET numKey = '$numKey', isPad = '$isPad', isWired = '$isWired' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -235,12 +235,12 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO PowerSupply VALUES (:id, :powerSupply)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            ':powerSupply' => $_POST['powerSupply'],
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $powerSupply = $_POST['powerSupply'];
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE PowerSupply SET powerSupply = '$powerSupply' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -264,14 +264,14 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO Processor VALUES (:id, :frequences, :nbCore, :chipset)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            ':frequences' => $_POST['frequences'],
-                            ':nbCore' => $_POST['nbCore'],
-                            ':chipset' => $_POST['chipset'],
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $frequences = $_POST['frequences'];
+                        $nbCore = $_POST['nbCore'];
+                        $chipset = $_POST['chipset'];
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE Processor SET frequences = '$frequences', nbCore = '$nbCore', chipset = '$chipset' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -295,14 +295,14 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO Ram VALUES (:id, :memory, :nbStrip, :typeFrequences)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            ':memory' => $_POST['memory'],
-                            ':nbStrip' => $_POST['nbStrip'],
-                            ':typeFrequences' => $_POST['typeFrequences'],
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $memory = $_POST['memory'];
+                        $nbStrip = $_POST['nbStrip'];
+                        $typeFrequences = $_POST['typeFrequences'];
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE Ram SET memory = '$memory', nbStrip = '$nbStrip', typeFrequences = '$typeFrequences' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
 
@@ -327,13 +327,13 @@ if (!empty($_POST)) {
                         </div>
                     </div>
                     <?php
-                    if (isset($id)) {
-                        $subStatement = $connection->prepare('INSERT INTO StorageSystem VALUES (:id, :isSsd, :memory)');
-                        $subStatement->execute([
-                            ':id' => $id,
-                            'isSsd' => !empty($_POST['isSsd']) ? 1 : 0,
-                            'memory' => $_POST['memory'],
-                        ]);
+                    if (isset($id) && !empty($_POST)) {
+                        $memory = $_POST['memory'];
+                        $isSsd = !empty($_POST['isSsd']) ? 1 : 0;
+                        $connection = getDataBaseConnexion();
+                        $sql = "UPDATE StorageSystem SET memory = '$memory', isSsd = '$isSsd' WHERE id = $id";
+                        $connection->exec($sql);
+                        header('location: ?page=updateComponent&submit=1&id='.$id);
                     }
                     break;
             }
