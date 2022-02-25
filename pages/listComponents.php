@@ -15,7 +15,7 @@ if (isset($_GET['sort'])) {
         </th>
         <th scope="col" class="align-middle">
             Model
-            <a href="?page=listComponents&sort=model&direction=DESC" class="bi bi-caret-down"></a>
+            <a href="?page=listComponents&sort=model&direction=ASC" class="bi bi-caret-down"></a>
         </th>
         <th scope="col" class="align-middle">Marque</th>
         <th scope="col" class="align-middle">Prix</th>
