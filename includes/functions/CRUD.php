@@ -33,12 +33,13 @@ function readComputer($id)
     return $stmt->fetch();
 }
 
-function createComputer($name, $quantity, $isLaptop, $dateAdd)
+function createComputer($name, $quantity, $isLaptop, $dateAdd, $idUser): ?int
 {
     try {
         $con = getDataBaseConnexion();
-        $sql = "INSERT INTO Computer (name, quantity, isLaptop, dateAdd) VALUES ($name, $quantity, $isLaptop, $dateAdd)";
+        $sql = "INSERT INTO Computer (name, quantity, isLaptop, dateAdd, idGlobalUser) VALUES ('$name', $quantity, $isLaptop, '$dateAdd', $idUser)";
         $con->exec($sql);
+        return $con->lastInsertId();
     } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }
@@ -118,4 +119,35 @@ function readComponent($id)
     $query = $connection->query($request);
     $query->setFetchMode(PDO::FETCH_CLASS, $categorie);
     return $query->fetch();
+}
+
+function getAllProperties(string $key): array
+{
+    $con = getDataBaseConnexion();
+    $request = "SELECT * FROM Component INNER JOIN $key ON $key.id = Component.id";
+    $stmt = $con->query($request);
+    $stmt->setFetchMode(PDO::FETCH_CLASS, $key);
+    return $stmt->fetchAll();
+}
+
+function createAssembler($idcomputer, $idcomponent)
+{
+    try {
+        $con = getDataBaseConnexion();
+        $sql = "INSERT INTO Assembler (idComputer, idComponent) VALUES ($idcomputer, $idcomponent)";
+        $con->exec($sql);
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+}
+
+function findComponents($id)
+{
+    $con = getDataBaseConnexion();
+    $request = "SELECT idComponent FROM Assembler WHERE idComputer = $id";
+    $stmt = $con->query($request);
+    $result = $stmt->fetchAll();
+    return array_map(function($result){
+        return $result['idComponent'];
+    }, $result);;
 }

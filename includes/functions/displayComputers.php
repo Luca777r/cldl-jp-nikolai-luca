@@ -26,7 +26,7 @@ function displayComputers()
                 <td><a href="?page=designer&del=<?= $computer->getId() ?>">
                         <button class="btn btn-danger">Supprimer</button>
                     </a></td>
-                <td><a href="?page=update&id=<?= $computer->getId() ?>">
+                <td><a href="?page=form&id=<?= $computer->getId() ?>">
                         <button class="btn btn-success">Editer</button>
                     </a></td>
             </tr>
