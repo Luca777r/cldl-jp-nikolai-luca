@@ -10,7 +10,7 @@ function displayComputers()
             <th scope="col">
                 <div>Nom</div>
                 <div>
-                    <a href="#"><button class="btn-success"><i class="bi bi-caret-up"></button></i></a>
+                    <a href=""><button class="btn-success"><i class="bi bi-caret-up"></button></i></a>
                     <button class="btn-warning"><i class="bi bi-caret-down"></button></i>
             </div>
             </th>

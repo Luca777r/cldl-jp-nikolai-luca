@@ -3,9 +3,9 @@
  * TRIS
  ***********/
 
- function orderBy(string $col, string $table, string $order = "ASC"): array {
+ function orderBy(string $col, string $table, string $order): array {
     $con = getDataBaseConnexion();
-    $request = "SELECT * FROM $table ORDER BY $col $order";
+    $request = "SELECT * FROM '$table' ORDER BY '$col' '$order'";
     $stmt = $con->query($request);
     return $stmt->fetchAll();
 }
