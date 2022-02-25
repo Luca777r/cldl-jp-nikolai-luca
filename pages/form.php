@@ -11,16 +11,15 @@ include_once 'pages/formValidation.php';
             <span class="error"> <?php echo $nameErr; ?></span>
         </div>
 
-
         <div class="form-check">
             <div>
-                <input class="form-check-input" name="IsLaptop" type="radio" value="1" <?php if ($islap === 1) { echo 'checked'; } ?>>
+                <input class="form-check-input" name="IsLaptop" type="radio" value="1" <?php if ($islap == 1) { echo 'checked'; } ?>>
                 <label class="form-check-label" for="exampleRadios1">
                     Laptop
                 </label>
             </div>
             <div>
-                <input class="form-check-input" name="IsLaptop" type="radio" value="0" <?php if ($islap === 0) { echo 'checked'; } ?>>
+                <input class="form-check-input" name="IsLaptop" type="radio" value="0" <?php if ($islap == 0) { echo 'checked'; } ?>>
                 <label class="form-check-label" for="exampleRadios2">
                     Tour
                 </label>

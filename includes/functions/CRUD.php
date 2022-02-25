@@ -92,21 +92,13 @@ function createAssembler($idcomputer, $idcomponent)
 
 
 
-function updateForm($id)
+function findComponents($id)
 {
     $con = getDataBaseConnexion();
     $request = "SELECT idComponent FROM Assembler WHERE idComputer = $id";
     $stmt = $con->query($request);
     $result = $stmt->fetchAll();
-    return $result;
-}
-
-function pray($id){
-    $results = updateForm($id);
-$components = [];
-$components = array_map(function($result){
+    return array_map(function($result){
         return $result['idComponent'];
-    }, $results);
-
-    var_dump($components);
+    }, $result);;
 }

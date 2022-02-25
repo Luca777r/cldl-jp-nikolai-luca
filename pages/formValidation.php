@@ -7,13 +7,7 @@ if (isset($_GET['id'])) {
     $computer = readComputer($id);
     $name = $computer->getName();
     $islap = $computer->getIsLaptop();
-
-    $statement = $connection->query("SELECT idComponent FROM Assembler WHERE idComputer = $id");
-    $results = $statement->fetchAll();
-    
-    $components = array_map(function($result){
-        return $result['idComponent'];
-    }, $results);
+    $components = findComponents($id);
 }
 
 
