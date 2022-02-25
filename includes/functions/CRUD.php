@@ -45,11 +45,11 @@ function createComputer($name, $quantity, $isLaptop, $dateAdd, $idUser): ?int
     }
 }
 
-function updateComputer($id, $name, $quantity, $isLaptop, $dateAdd)
+function updateComputer($id, $name, $isLaptop)
 {
     try {
         $con = getDataBaseConnexion();
-        $sql = "UPDATE Computer set name = '$name', quantity = $quantity, isLaptop = $isLaptop, dateAdd = '$dateAdd' WHERE id = $id ";
+        $sql = "UPDATE Computer set name = '$name', isLaptop = $isLaptop WHERE id = $id ";
         $con->exec($sql);
         header('location: ?page=designer');
     } catch (PDOException $e) {
@@ -62,11 +62,13 @@ function deleteComputer($id)
     try {
         $con = getDataBaseConnexion();
         $id = $_GET['del'];
+        $sql1= "DELETE FROM Assembler WHERE idComputer = '$id' "; 
+        $stmt1 = $con->query($sql1);
         $sql = "DELETE FROM Computer WHERE id = '$id' ";
         $stmt = $con->query($sql);
         header('location: ?page=designer');
     } catch (PDOException $e) {
-        echo $sql . "<br>" . $e->getMessage();
+        echo $sql1 . "<br>" . $e->getMessage();
     }
 }
 
@@ -136,6 +138,17 @@ function createAssembler($idcomputer, $idcomponent)
         $con = getDataBaseConnexion();
         $sql = "INSERT INTO Assembler (idComputer, idComponent) VALUES ($idcomputer, $idcomponent)";
         $con->exec($sql);
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+}
+
+function emptyAssembler(int $id){
+try {
+        $con = getDataBaseConnexion();
+        $sql = "DELETE FROM Assembler WHERE idComputer = $id";
+        $con->exec($sql);
+        header('location: ?page=designer');
     } catch (PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }

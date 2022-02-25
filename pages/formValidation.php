@@ -92,8 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($errorCount == 0) {
         $date = new DateTime();
-        $id = createComputer($name, 0, $isLaptop, $date->format('Y-m-d'), 1);
-        createAssembler($id, $isLaptop);
+        if(isset($id)) {
+            updateComputer($id, $name, $isLaptop);
+            emptyAssembler($id);
+        } else {
+            $id = createComputer($name, 0, $isLaptop, $date->format('Y-m-d'), 1);
+        }
+
         createAssembler($id, $graphiccard);
         foreach ($monitor as $idMonitor) {
             createAssembler($id, $idMonitor);

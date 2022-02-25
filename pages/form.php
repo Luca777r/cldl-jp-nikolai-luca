@@ -154,7 +154,7 @@ include_once 'pages/formValidation.php';
         </div>
 
 <div class="d-flex mt-5">
-    <button type="submit" class="btn btn-primary mx-auto">Submit</button>
+    <button type="submit" class="btn btn-primary mx-auto">Submit</button></a>
 </div>
 
 </form>

@@ -3,14 +3,35 @@
 function displayComputers()
 {
     ?>
-    <table class="table table-striped table-hover">
-        <thead class="table-dark text-center"">
+    <table class="table table-striped">
+        <thead class="table-dark text-center">
         <tr>
-            <th scope="col" >#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Quantité</th>
-            <th scope="col">Si portable</th>
-            <th scope="col">Date</th>
+            <th scope="col">#</th>
+            <th scope="col">
+                <div>Nom</div>
+                <div>
+                    <a href="#"><button class="btn-success"><i class="bi bi-caret-up"></button></i></a>
+                    <button class="btn-warning"><i class="bi bi-caret-down"></button></i>
+            </div>
+            </th>
+            <th scope="col"><div>Quantité</div>
+                <div>
+                    <button class="btn-success"><i class="bi bi-caret-up"></button></i>
+                    <button class="btn-warning"><i class="bi bi-caret-down"></button></i>
+            </div>
+        </th>
+            <th scope="col"><div>Si portable</div>
+                <div>
+                    <button class="btn-success"><i class="bi bi-caret-up"></button></i>
+                    <button class="btn-warning"><i class="bi bi-caret-down"></button></i>
+            </div>
+        </th>
+            <th scope="col"><div>Date</div>
+                <div>
+                    <button class="btn-success"><i class="bi bi-caret-up"></button></i>
+                    <button class="btn-warning"><i class="bi bi-caret-down"></button></i>
+            </div>
+        </th>
             <th scope="col">Supprimer</th>
             <th scope="col">Editer</th>
         </tr>
@@ -35,6 +56,7 @@ function displayComputers()
         ?>
         </tbody>
     </table>
+    
 
     <?php
     if (isset($_GET['del'])) {
