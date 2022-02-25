@@ -17,7 +17,6 @@ class StorageSystem extends Component
         return $this;
     }
 
-
     public function getMemory(): ?int
     {
         return $this->memory;

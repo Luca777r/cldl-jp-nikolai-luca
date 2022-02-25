@@ -7,6 +7,7 @@ class Computer
 {
     use ComponentTrait;
     use DateTrait;
+
     protected ?bool $isLaptop;
     protected ?string $name;
     protected ?int $id;

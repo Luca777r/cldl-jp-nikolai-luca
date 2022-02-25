@@ -70,6 +70,57 @@ function deleteComputer($id)
     }
 }
 
+function getAllComponents()
+{
+    $connection = getDataBaseConnexion();
+    $sql = 'SELECT * FROM Component';
+    $query = $connection->query($sql);
+    $result = $query->fetchAll(PDO::FETCH_CLASS, Component::class);
+    return $result;
+}
+
+function getCategorie($id)
+{
+    $connection = getDataBaseConnexion();
+
+    $statement = $connection->query("SELECT * FROM Component WHERE id = $id");
+    $statement->setFetchMode(PDO::FETCH_CLASS, Component::class);
+
+    $component = $statement->fetch();
+    $categorie = $component->getCategorie();
+    return $categorie;
+}
+
+function deleteComponent($id)
+{
+    try {
+        $connection = getDataBaseConnexion();
+
+        $categorie = getCategorie($id);
+
+        $sql2 = "DELETE FROM $categorie WHERE id = $id ";
+        $sql = "DELETE FROM Component WHERE id = $id ";
+        $query2 = $connection->exec($sql2);
+        $query = $connection->exec($sql);
+        header('location: ?page=listComponents');
+    } catch (PDOException $e) {
+        echo $e . "<br>" . $e->getMessage();
+    }
+}
+
+function readComponent($id)
+{
+    $connection = getDataBaseConnexion();
+
+    $categorie = getCategorie($id);
+
+    $request = "SELECT * FROM Component INNER JOIN $categorie ON $categorie.id = Component.id WHERE Component.id = $id";
+
+    $query = $connection->query($request);
+    $query->setFetchMode(PDO::FETCH_CLASS, $categorie);
+    return $query->fetch();
+}
+
 function getAllProperties(string $key): array
 {
     $con = getDataBaseConnexion();
@@ -89,8 +140,6 @@ function createAssembler($idcomputer, $idcomponent)
         echo $sql . "<br>" . $e->getMessage();
     }
 }
-
-
 
 function findComponents($id)
 {

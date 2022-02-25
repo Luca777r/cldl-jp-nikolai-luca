@@ -5,7 +5,6 @@ namespace Traits;
 trait WiredTrait
 {
     protected ?bool $isWired;
-    
 
     public function getIsWired(): ?bool
     {

@@ -7,7 +7,7 @@ class Mouse extends Component
     use WiredTrait;
     protected ?bool $isPad;
     protected ?int $numKey;
-    
+
     public function getIsPad(): ?bool
     {
         return $this->isPad;

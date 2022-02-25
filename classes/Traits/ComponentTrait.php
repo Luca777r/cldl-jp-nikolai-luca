@@ -7,12 +7,10 @@ trait ComponentTrait
     protected ?int $quantity;
     protected ?int $numberCreated;
 
-
     public function getQuantity(): int
     {
         return $this->quantity;
     }
-
 
     public function setQuantity($quantity): self
     {
@@ -21,13 +19,12 @@ trait ComponentTrait
         return $this;
     }
 
-    public function getnumberCreated(): int
+    public function getNumberCreated(): ?int
     {
         return $this->numberCreated;
     }
 
-
-    public function setnumberCreated($numberCreated): self
+    public function setNumberCreated($numberCreated): self
     {
         $this->numberCreated = $numberCreated;
 

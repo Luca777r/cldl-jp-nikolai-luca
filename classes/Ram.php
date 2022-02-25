@@ -18,7 +18,6 @@ class Ram extends Component
         return $this;
     }
 
-
     public function getNbStrip(): ?int
     {
         return $this->nbStrip;
@@ -30,7 +29,6 @@ class Ram extends Component
 
         return $this;
     }
-
 
     public function getTypeFrequences(): ?string
     {

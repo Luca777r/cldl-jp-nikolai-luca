@@ -11,7 +11,6 @@ class Processor extends Component
         return $this->frequences;
     }
 
-
     public function setFrequences($frequences): self
     {
         $this->frequences = $frequences;
@@ -19,12 +18,10 @@ class Processor extends Component
         return $this;
     }
 
-
     public function getNbCore(): ?int
     {
         return $this->nbCore;
     }
-
 
     public function setNbCore($nbCore): self
     {
@@ -33,14 +30,10 @@ class Processor extends Component
         return $this;
     }
 
-
-
-
     public function getChipset(): ?string
     {
         return $this->chipset;
     }
-
 
     public function setChipset($chipset): self
     {
