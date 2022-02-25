@@ -26,7 +26,9 @@
             <form class="" action="" method="post">
                 <div class="form-group m-5">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="textCenter form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="nom.prenom@cldl.com">
+                    <input type="email" class="textCenter form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="nom.prenom@cldl.com" value="<?php if (isset($_POST['username'])) {
+                                                                                                                                                                                echo $_POST['username'];
+                                                                                                                                                                            } ?>">
                     <small id="emailHelp" class="form-text text-muted">Vos informations sont sécurisé</small>
                 </div>
                 <div class="resize form-group m-5">
