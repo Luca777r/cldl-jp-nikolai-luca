@@ -62,7 +62,7 @@ function deleteComputer($id)
     try {
         $con = getDataBaseConnexion();
         $id = $_GET['del'];
-        $sql1= "DELETE FROM Assembler WHERE idComputer = '$id' "; 
+        $sql1 = "DELETE FROM Assembler WHERE idComputer = '$id' ";
         $stmt1 = $con->query($sql1);
         $sql = "DELETE FROM Computer WHERE id = '$id' ";
         $stmt = $con->query($sql);
@@ -143,8 +143,9 @@ function createAssembler($idcomputer, $idcomponent)
     }
 }
 
-function emptyAssembler(int $id){
-try {
+function emptyAssembler(int $id)
+{
+    try {
         $con = getDataBaseConnexion();
         $sql = "DELETE FROM Assembler WHERE idComputer = $id";
         $con->exec($sql);
