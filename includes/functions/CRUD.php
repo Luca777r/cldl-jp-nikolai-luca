@@ -110,6 +110,11 @@ function deleteComponent($id)
     }
 }
 
+function archiveComponent()
+{
+    echo 'desactivated';
+}
+
 function readComponent($id)
 {
     $connection = getDataBaseConnexion();

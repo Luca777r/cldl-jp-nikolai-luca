@@ -11,6 +11,8 @@ class Component
     protected ?string $brand;
     protected ?float $price;
     protected ?bool $isPeripheral;
+    protected ?bool $isUsed;
+
     use DateTrait;
     use ComponentTrait;
 
@@ -85,4 +87,16 @@ class Component
 
         return $this;
     }
+
+    public function getIsUsed(): ?bool
+    {
+        return $this->isUsed;
+    }
+
+    public function setIsUsed(?bool $isUsed): void
+    {
+        $this->isUsed = $isUsed;
+    }
+
+
 }

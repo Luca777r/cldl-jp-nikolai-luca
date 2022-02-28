@@ -6,7 +6,8 @@ if (isset($_GET['field'])) {
     $components = orderByComponent($_GET['field'], 'Component', ($_GET['direction']));
 } else {
     $components = getAllComponents();
-} ?>
+}
+?>
 
     <table class="table table-striped">
         <thead class="table-dark">
@@ -94,7 +95,9 @@ if (isset($_GET['field'])) {
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($components as $component) { ?>
+        <?php foreach ($components as $component) {
+            checkComponentIsUsed($component->getId());
+            ?>
             <tr>
                 <th scope="row"><?= $component->getId() ?></th>
                 <td><?= $component->getCategorie() ?></td>
@@ -105,9 +108,21 @@ if (isset($_GET['field'])) {
                 <td><?= $component->getNumberCreated() ?></td>
                 <td><?= $component->getDateAdd()->format("Y-m-d") ?></td>
                 <td>
-                    <a href="?page=listComponents&del=<?= $component->getId() ?>">
-                        <button class="btn btn-danger">Supprimer</button>
-                    </a>
+                    <?php
+                    if ($component->getIsUsed() == true) {
+                        ?>
+                        <a href="?page=listComponents&archive=<?= $component->getId() ?>">
+                            <button class="btn btn-primary">Archiver</button>
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="?page=listComponents&del=<?= $component->getId() ?>">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </a>
+                        <?php
+                    }
+                    ?>
                 </td>
                 <td>
                     <a href="?page=updateComponent&id=<?= $component->getId() ?>">
@@ -124,4 +139,8 @@ if (isset($_GET['field'])) {
 <?php
 if (isset($_GET['del'])) {
     deleteComponent($_GET['del']);
+}
+
+if (isset($_GET['archive'])) {
+    archiveComponent();
 }
