@@ -14,49 +14,39 @@ if (isset($_GET['sort'])) {
             <div>
                 Categorie
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-start">
                 <a href="?page=listComponents&sort=categorie&direction=ASC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                        <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                    </svg>
+                    <i class="bi bi-caret-down"></i>
                 </a>
                 <a href="?page=listComponents&sort=categorie&direction=DESC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
-                        <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                    </svg>
+                    <i class="bi bi-caret-up"></i>
                 </a>
             </div>
 
         </th>
-        <th scope="col" class="align-middle">
-            <span>
+        <th scope="col" class="align-center">
+            <div>
                 Model
-            </span>
-            <a href="?page=listComponents&sort=model&direction=ASC">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                    <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                </svg>
-            </a>
-            <a href="?page=listComponents&sort=model&direction=DESC">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
-                    <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                </svg>
-            </a>
+            </div>
+            <div class="d-flex justify-content-start">
+                <a href="?page=listComponents&sort=model&direction=ASC">
+                    <i class="bi bi-caret-down"></i>
+                </a>
+                <a href="?page=listComponents&sort=model&direction=DESC">
+                    <i class="bi bi-caret-up"></i>
+                </a>
+            </div>
         </th>
         <th scope="col">
             <div>
                 Marque
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-start">
                 <a href="?page=listComponents&sort=brand&direction=ASC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                        <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                    </svg>
+                    <i class="bi bi-caret-down"></i>
                 </a>
                 <a href="?page=listComponents&sort=brand&direction=DESC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
-                        <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                    </svg>
+                    <i class="bi bi-caret-up"></i>
                 </a>
             </div>
         </th>
@@ -64,52 +54,54 @@ if (isset($_GET['sort'])) {
             <div>
                 Prix
             </div>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-start">
                 <a href="?page=listComponents&sort=price&direction=ASC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                        <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                    </svg>
+                    <i class="bi bi-caret-down"></i>
                 </a>
                 <a href="?page=listComponents&sort=price&direction=DESC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
-                        <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                    </svg>
+                    <i class="bi bi-caret-up"></i>
                 </a>
             </div>
         </th>
         <th scope="col">
-            <span>
+            <div>
                 Quantité
-            </span>
-            <div class="d-flex justify-content-center">
-                <a href="?page=listComponents&sort=price&direction=ASC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                        <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                    </svg>
+            </div>
+            <div class="d-flex justify-content-start">
+                <a href="?page=listComponents&sort=quantity&direction=ASC">
+                    <i class="bi bi-caret-down"></i>
                 </a>
-                <a href="?page=listComponents&sort=price&direction=DESC">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
-                        <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                    </svg>
+                <a href="?page=listComponents&sort=quantity&direction=DESC">
+                    <i class="bi bi-caret-up"></i>
                 </a>
             </div>
         </th>
-        <th scope="col" class="d-flex align-items-center" >
+        <th scope="col">
             <div>
                 Nombre de modèles avec cette pieces
             </div>
+            <div class="d-flex justify-content-start">
+                <a href="?page=listComponents&sort=numberCreated&direction=ASC">
+                    <i class="bi bi-caret-down"></i>
+                </a>
                 <a href="?page=listComponents&sort=numberCreated&direction=DESC">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                    <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                </svg>
-            </a>
-            <a href="?page=listComponents&sort=numberCreated&direction=ASC">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
-                    <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
-                </svg>
-            </a>
+                    <i class="bi bi-caret-up"></i>
+                </a>
+            </div>
         </th>
-        <th scope="col" class="align-middle">Date d'ajout</th>
+        <th scope="col">
+            <div>
+                Date d'ajout
+            </div>
+            <div class="d-flex justify-content-start">
+                <a href="?page=listComponents&sort=dateAdd&direction=ASC">
+                    <i class="bi bi-caret-down"></i>
+                </a>
+                <a href="?page=listComponents&sort=dateAdd&direction=DESC">
+                    <i class="bi bi-caret-up"></i>
+                </a>
+            </div>
+        </th>
         <th scope="col" class="align-middle">Supprimer</th>
         <th scope="col" class="align-middle">Editer</th>
     </tr>
