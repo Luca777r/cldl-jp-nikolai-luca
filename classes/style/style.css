@@ -10,3 +10,7 @@
 .textCenter {
     text-align: center;
 }
+
+.disabled {
+    pointer-events: none;
+}

@@ -12,6 +12,7 @@ class Component
     protected ?float $price;
     protected ?bool $isPeripheral;
     protected ?bool $isUsed;
+    protected ?bool $isArchived;
 
     use DateTrait;
     use ComponentTrait;
@@ -98,5 +99,13 @@ class Component
         $this->isUsed = $isUsed;
     }
 
+    public function getIsArchived(): ?bool
+    {
+        return $this->isArchived;
+    }
 
+    public function setIsArchived(?bool $isArchived): void
+    {
+        $this->isArchived = $isArchived;
+    }
 }

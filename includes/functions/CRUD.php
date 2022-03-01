@@ -100,8 +100,8 @@ function deleteComponent($id)
 
         $categorie = getCategorie($id);
 
-        $sql2 = "DELETE FROM $categorie WHERE id = $id ";
-        $sql = "DELETE FROM Component WHERE id = $id ";
+        $sql2 = "DELETE FROM $categorie WHERE id = $id";
+        $sql = "DELETE FROM Component WHERE id = $id";
         $query2 = $connection->exec($sql2);
         $query = $connection->exec($sql);
         header('location: ?page=listComponents');
@@ -110,9 +110,23 @@ function deleteComponent($id)
     }
 }
 
-function archiveComponent()
+function archiveComponent($id)
 {
-    echo 'desactivated';
+    $connection = getDataBaseConnexion();
+
+    $sql = "SELECT isArchived FROM Component WHERE id = $id";
+
+    $query = $connection->query($sql);
+    $count = $query->fetchAll(PDO::FETCH_COLUMN, 'isArchived');
+    foreach ($count as $isArchived) {
+        if ($isArchived > 0) {
+            $sql = "UPDATE Component SET isArchived = 0 WHERE id = $id";
+        } else {
+            $sql = "UPDATE Component SET isArchived = 1 WHERE id = $id";
+        }
+        $connection->exec($sql);
+    }
+//    header('location: listComponents.php');
 }
 
 function readComponent($id)
