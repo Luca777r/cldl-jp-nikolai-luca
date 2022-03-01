@@ -17,8 +17,6 @@ if (isset($_POST['submit'])) {
     header('location: index.php');
 }
 
-//var_dump(checkIsComponentUsed());
-
 include_once 'pages/' . $page . '.php';
 //include 'fixtures.php';
 
