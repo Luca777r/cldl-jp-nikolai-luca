@@ -146,7 +146,7 @@ if (isset($_GET['field'])) {
                     ?>
                 </td>
                 <td>
-                    <a href="?page=updateComponent&id=<?= $component->getId() ?>">
+                    <a <?php if (!$component->getIsArchived()) {?> href="?page=updateComponent&id=<?= $component->getId() ?>"<?php }?>>
                         <button class="btn btn-success <?php if ($component->getIsArchived()) { echo 'disabled';} ?>">Editer</button>
                     </a>
                 </td>

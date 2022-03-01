@@ -126,7 +126,7 @@ function archiveComponent($id)
         }
         $connection->exec($sql);
     }
-//    header('location: listComponents.php');
+    header('location: ?page=listComponents');
 }
 
 function readComponent($id)
