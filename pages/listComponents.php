@@ -7,14 +7,10 @@ if (isset($_GET['field'])) {
 } else {
     $components = getAllComponents();
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> e61a142 (ajout des mouvements stocks pour les components)
 ?>
 
-    <table class="table table-striped">
-        <thead class="table-dark">
+<table class="table table-striped">
+    <thead class="table-dark">
         <tr>
             <th scope="col" class="align-middle">Id</th>
             <th scope="col" class="align-middle">
@@ -108,14 +104,16 @@ if (isset($_GET['field'])) {
             <th scope="col" class="align-middle">Editer</th>
             <th scope="col" class="align-middle">Mouvement de Stock</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
         <?php
         /** @var Component $component */
         foreach ($components as $component) {
             checkComponentIsUsed($component->getId());
-            ?>
-            <tr <?php if ($component->getIsArchived()) { echo 'class="table-danger offset-1"';} ?>>
+        ?>
+            <tr <?php if ($component->getIsArchived()) {
+                    echo 'class="table-danger offset-1"';
+                } ?>>
                 <th scope="row"><?= $component->getId() ?></th>
                 <td><?= $component->getCategorie() ?></td>
                 <td><?= $component->getModel() ?></td>
@@ -128,37 +126,34 @@ if (isset($_GET['field'])) {
                     <?php
                     if ($component->getIsUsed() == true) {
                         if ($component->getIsArchived() == true) {
+                    ?>
+                            <a href="?page=listComponents&archive=<?= $component->getId() ?>">
+                                <button class="btn btn-primary">Desarchiver</button>
+                            </a>
+                        <?php
+                        } else {
                         ?>
-                        <a href="?page=listComponents&archive=<?= $component->getId() ?>">
-                            <button class="btn btn-primary">Desarchiver</button>
-                        </a>
-                            <?php
+                            <a href="?page=listComponents&archive=<?= $component->getId() ?>">
+                                <button class="btn btn-primary">Archiver</button>
+                            </a>
+                        <?php
                         }
-                            else {
-                                ?>
-                                <a href="?page=listComponents&archive=<?= $component->getId() ?>">
-                                    <button class="btn btn-primary">Archiver</button>
-                                </a>
-                                <?php
-                            }
                     } else {
                         ?>
                         <a href="?page=listComponents&del=<?= $component->getId() ?>">
                             <button class="btn btn-danger">Supprimer</button>
                         </a>
-                        <?php
+                    <?php
                     }
                     ?>
                 </td>
                 <td>
-<<<<<<< HEAD
-                    <a <?php if (!$component->getIsArchived()) {?> href="?page=updateComponent&id=<?= $component->getId() ?>"<?php }?>>
-                        <button class="btn btn-success <?php if ($component->getIsArchived()) { echo 'disabled';} ?>">Editer</button>
-=======
-
-                    <a href="?page=updateComponent&id=<?= $component->getId() ?>">
-                        <button class="btn btn-success">Editer</button>
->>>>>>> e61a142 (ajout des mouvements stocks pour les components)
+                    <a <?php if (!$component->getIsArchived()) { ?> href="?page=updateComponent&id=<?= $component->getId() ?>" <?php } ?>>
+                        <button class="btn btn-success <?php if ($component->getIsArchived()) {
+                                                            echo 'disabled';
+                                                        } ?>">
+                            Editer
+                        </button>
                     </a>
                 </td>
                 <td>
@@ -192,11 +187,11 @@ if (isset($_GET['field'])) {
                     </div>
                 </td>
             </tr>
-            <?php
+        <?php
         }
         ?>
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
 <?php
 if (isset($_GET['del'])) {
