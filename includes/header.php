@@ -70,7 +70,22 @@ include 'variables/bd.php';
                 </li>
             </ul>
         </div>
+<<<<<<< HEAD
     </div>
 </nav>
 
 <div class="container mt-4 d-flex justify-content-center">
+=======
+    </nav>
+    <?php
+
+    if (isset($_GET['invalid'])) {
+    ?>
+        <div class="container alert alert-danger" role="alert">
+            Le stock ne peut pas avoir de valeur négative!
+        </div>
+    <?php
+    }
+    ?>
+    <div class="container mt-4 d-flex justify-content-center">
+>>>>>>> e61a142 (ajout des mouvements stocks pour les components)

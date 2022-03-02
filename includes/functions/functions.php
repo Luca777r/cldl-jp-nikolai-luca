@@ -1,9 +1,8 @@
 <?php
-
 function checkComponentIsUsed($id)
 {
     $connection = getDataBaseConnexion();
-    $sql = "SELECT COUNT(idComputer) as nb FROM Assembler WHERE idComponent = ".$id;
+    $sql = "SELECT COUNT(idComputer) as nb FROM Assembler WHERE idComponent = " . $id;
     $query = $connection->query($sql);
     $counts = $query->fetchAll(PDO::FETCH_COLUMN, 'nb');
     foreach ($counts as $nb) {

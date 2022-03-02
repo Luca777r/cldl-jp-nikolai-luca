@@ -184,3 +184,14 @@ function findComponents($id)
         return $result['idComponent'];
     }, $result);;
 }
+
+function putStock($value, $id)
+{
+    try {
+        $con = getDataBaseConnexion();
+        $sql = "UPDATE Component SET quantity = quantity + $value WHERE id = $id";
+        $con->exec($sql);
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+}
