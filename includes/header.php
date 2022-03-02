@@ -68,8 +68,7 @@ include 'variables/bd.php';
                     </li>
                 </ul>
             </div>
-            <<<<<<< HEAD </div> </nav> <div class="container mt-4 d-flex justify-content-center">
-                =======
+        </div>
     </nav>
     <?php
 
