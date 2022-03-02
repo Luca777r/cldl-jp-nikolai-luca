@@ -15,7 +15,7 @@ $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE Processor;SET FOREIGN_KEY_C
 $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE Ram;SET FOREIGN_KEY_CHECKS=1;");
 $connection->exec("SET FOREIGN_KEY_CHECKS=0;TRUNCATE StorageSystem;SET FOREIGN_KEY_CHECKS=1;");
 
-$sql = "INSERT INTO Component (categorie, model, brand, price, quantity, numberCreated, dateAdd, isPeripheral) VALUES (:categorie, :model, :brand, :price, :quantity, :numberCreated, :dateAdd, :isPeripheral)";
+$sql = "INSERT INTO Component (categorie, model, brand, price, quantity, numberCreated, dateAdd, isPeripheral, isUsed, isArchived) VALUES (:categorie, :model, :brand, :price, :quantity, :numberCreated, :dateAdd, :isPeripheral, :isUsed, :isArchived)";
 
 $pdoStatement = $connection->prepare($sql);
 
@@ -28,6 +28,8 @@ foreach ($components as $component) {
     $pdoStatement->bindParam(':numberCreated', $component['numberCreated']);
     $pdoStatement->bindParam(':dateAdd', $component['dateAdd']);
     $pdoStatement->bindParam(':isPeripheral', $component['isPeripheral']);
+    $pdoStatement->bindParam(':isUsed', $component['isUsed']);
+    $pdoStatement->bindParam(':isArchived', $component['isArchived']);
 
     $count = $pdoStatement->execute();
 
@@ -110,5 +112,4 @@ foreach ($components as $component) {
             ]);
             break;
     }
-//    var_dump($count);
 }
