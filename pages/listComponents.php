@@ -7,6 +7,10 @@ if (isset($_GET['field'])) {
 } else {
     $components = getAllComponents();
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e61a142 (ajout des mouvements stocks pour les components)
 ?>
 
     <table class="table table-striped">
@@ -102,6 +106,7 @@ if (isset($_GET['field'])) {
                 </div>
             </th>
             <th scope="col" class="align-middle">Editer</th>
+            <th scope="col" class="align-middle">Mouvement de Stock</th>
         </tr>
         </thead>
         <tbody>
@@ -146,9 +151,45 @@ if (isset($_GET['field'])) {
                     ?>
                 </td>
                 <td>
+<<<<<<< HEAD
                     <a <?php if (!$component->getIsArchived()) {?> href="?page=updateComponent&id=<?= $component->getId() ?>"<?php }?>>
                         <button class="btn btn-success <?php if ($component->getIsArchived()) { echo 'disabled';} ?>">Editer</button>
+=======
+
+                    <a href="?page=updateComponent&id=<?= $component->getId() ?>">
+                        <button class="btn btn-success">Editer</button>
+>>>>>>> e61a142 (ajout des mouvements stocks pour les components)
                     </a>
+                </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <a href="?page=listComponent&id=<?= $component->getId() ?>"><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></a>
+                    +
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Mouvement de stock</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="?page=stockValidation&id=<?= $component->getId() ?>" method="POST">
+                                        <div class="mb-3">
+                                            <label for="number" class="form-label">Nombre à ajouter</label>
+                                            <input type="number" name="number" value="<?= $component->getId() ?>" class="form-control">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
             <?php

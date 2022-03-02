@@ -1,4 +1,3 @@
 <?php
-
-$_GET['del'] = 26;
-deleteComputer($_GET['del']);
+$id = 1;
+var_dump(readComponent($id)->getQuantity());
