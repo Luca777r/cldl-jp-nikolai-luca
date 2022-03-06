@@ -8,6 +8,30 @@ if (isset($_GET['field'])) {
     $components = getAllComponents();
 }
 ?>
+<?php
+$sql = 'SELECT * FROM pieces';
+$criteria = [];
+$params = [];
+if (isset($_POST['categorie']) && $_POST['categorie']) {
+    $criteria[] = 'categorie = :categorie';
+    $params[':categorie'] = $_POST['categorie'];
+}
+if (!empty($criteria)) {
+    $sql .= ' WHERE ';
+    $sql .= implode(' AND ', $criteria);
+}
+if (isset($_GET['tri']) && isset($_GET['order'])) {
+    $sql .= ' ORDER BY ' . $_GET['tri'] . ' ' . $_GET['order'] . '';
+}
+$sth = $connection->prepare($sql);
+
+$sth->setFetchMode(PDO::FETCH_CLASS, Piece::class);
+
+$sth->execute($params);
+
+$pieces = $sth->fetchAll();
+
+?>
 
 <table class="table table-striped">
     <thead class="table-dark">
