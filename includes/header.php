@@ -62,6 +62,9 @@ include 'variables/bd.php';
                         } else {
                         ?>
                             <a class="nav-link bi bi-person" aria-current="page" href="?page=login">Connexion</a>
+                            <?php
+                            ?>
+                            <a class="nav-link bi bi-person" aria-current="page" href="?page=signUp">Inscription</a>
                         <?php
                         }
                         ?>

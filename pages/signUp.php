@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="classes/style/style.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-        <title>login</title>
+        <title>signUp</title>
     </head>
 
     <header>
@@ -29,8 +29,8 @@
                     <label for="exampleInputPassword1">Mot de passe</label>
                     <input type="password" class="textCenter form-control" id="password" name="password" placeholder="Entrer mot de passe">
                 </div>
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">Connexion</button>
+                <div class="d-flex justify-content-center mt-5">
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
                 </div>
 
 
@@ -38,48 +38,52 @@
         </div>
         <?php
 
-        $pageTitle = "Connexion";
-
-
-        $loginErrors = [];
-
+        $pageTitle = "Inscription";
 
 
         if (isset($_POST["username"]) && isset($_POST["password"])) {
-            $password = $_POST["password"];
-            $username = $_POST["username"];
-            $subStatement = $connection->prepare('SELECT password FROM GlobalUser WHERE email= :email');
+
+            $password = $_POST['password'];
+            $email = $_POST['username'];
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $subStatement = $connection->prepare('INSERT INTO GlobalUser (email, password) VALUES (:email, :password)');
             $subStatement->execute([
-                ':email' => $username,
+                ':email' => $email,
+                ':password' => $password
             ]);
-            $data = $subStatement->fetch();
-            $passwordBdd = $data['password'];
+        }
 
-            if (empty($password)) {
-                $loginErrors[] = "Veuillez saisir un mot de passe";
-            } elseif (password_verify($password, $passwordBdd) == false) {
-                $loginErrors[] = "Mot de passe incorrecte";
-            }
 
-            if (empty($username)) {
-                $loginErrors[] = "Veuillez saisir une adresse";
-            }
 
-            if (empty($loginErrors) && password_verify($password, $passwordBdd) == true) {
-                $_SESSION["username"] = $_POST["username"];
-                header("Location: index.php?page=home&loginSuccess=1");
-            }
-            foreach ($loginErrors as $loginError) {
+
+
+
+        // if (empty($password)) {
+        //     $loginErrors[] = "Veuillez saisir un mot de passe";
+        // } elseif ($password != $defaultPassword) {
+        //     $loginErrors[] = "Mot de passe incorrecte";
+        // }
+
+        // if (empty($username)) {
+        //     $loginErrors[] = "Veuillez saisir une adresse";
+        // }
+
+        // if (empty($loginErrors)) {
+        //     $_SESSION["username"] = $_POST["username"];
+        //     header("Location: index.php?page=home&loginSuccess=1");
+        // }
+        // foreach ($loginErrors as $loginError) {
+        // 
         ?>
-                <div class="d-flex justify-content-center alert alert-danger" role="alert">
-                    <?= $loginError; ?>
-                </div>
-            <?php
-            }
-            ?>
+        <!-- // <div class="d-flex justify-content-center alert alert-danger" role="alert">
+            // <?= $loginError; ?>
+            // </div> -->
+        <?php
+        // }
+        ?>
 
         <?php
-        }
+        // }
 
         ?>
 
